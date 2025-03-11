@@ -10,6 +10,10 @@ Navigation
 }
 .link {
   padding: 1rem 0;
+  font-size: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .link:focus {
   outline: 2px solid var(--color-orange-orange3);
@@ -35,23 +39,34 @@ Navigation
   z-index: 3;
 }
 .mainNavLinks {
-  display: none;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -100vw;
+  transition: right 0.7s ease-in-out;
   text-transform: uppercase;
+  padding: 20vh 10vw;
+  width: 100dvw;
+}
+.mainNavLinks.active {
+  right: 0;
 }
 .mobileNavButton {
-  padding: 1rem;
-}
-.sign-in-button {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: var(--color-body-text-default);
-  padding: 0.25rem;
-  text-transform: uppercase;
+  color: white;
+  min-width: 4rem;
+  position: relative;
+  z-index: 11;
 }
 .logo {
-  width: 15%;
+  width: clamp(10rem, 15vw, 15rem);
+  position: relative;
+  z-index: 11;
 }
 
-@media (min-width: 1012px) {
+@media (min-width: 1024px) {
   .nav {
     display: flex;
     flex-direction: row;
@@ -59,5 +74,20 @@ Navigation
   }
   .mobileNavButton {
     display: none;
+  }
+  .mainNavLinks {
+    flex-direction: row;
+    transform: translateX(0);
+    position: static;
+    background-color: transparent;
+    gap: 1rem;
+    transition: none;
+    padding: 0;
+    width: auto;
+  }
+  .link {
+    font-size: 1rem;
+    padding: 0;
+    width: auto;
   }
 }

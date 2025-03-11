@@ -46,12 +46,19 @@ Footer
 .footerNav {
   margin: 0 auto;
 }
+.logo {
+  width: clamp(10rem, 15vw, 15rem);
+}
+.externalLinkIcon {
+  display: inline-block;
+  color: white;
+  width: 2rem;
+}
 @media (min-width: 768px) {
-  .logo {
-    width: 15%;
-  }
   .addressBlock {
     flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 }
 
@@ -59,6 +66,10 @@ Footer
   .nav {
     display: flex;
     flex-direction: row;
+    align-items: center;
+  }
+  .addressBlock {
+    justify-content: center;
     align-items: center;
   }
 }

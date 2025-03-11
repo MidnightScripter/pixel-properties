@@ -10,14 +10,14 @@ CSS Variables
   --color-blue-blue4: rgba(6, 149, 198, 1);
   --color-blue-blue5: rgba(62, 162, 205, 1);
 
-  --color-purple-purple1: rgba(76, 40, 73, 1);
-  --color-purple-purple2: rgba(126, 70, 122, 1);
-  --color-purple-purple3: rgba(139, 88, 135, 1);
-  --color-purple-purple4: rgba(165, 123, 161, 1);
+  --color-purple-purple1: #4c2849;
+  --color-purple-purple2: #7e467a;
+  --color-purple-purple3: #8b5887;
+  --color-purple-purple4: #a57ba1;
 
   --color-orange-orange1: #d64b14;
-  --color-orange-orange2: rgba(240, 112, 58, 1);
-  --color-orange-orange3: rgb(253, 166, 84);
+  --color-orange-orange2: #f0703a;
+  --color-orange-orange3: #fda654;
 
   --color-orange-redorange1: rgba(176, 43, 12, 1);
   --color-orange-redorange2: rgba(237, 61, 21, 1);
@@ -81,6 +81,9 @@ button,
 textarea,
 select {
   font: inherit;
+}
+button {
+  cursor: pointer;
 }
 address {
   font-style: inherit;

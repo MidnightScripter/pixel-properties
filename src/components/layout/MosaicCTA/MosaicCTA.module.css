@@ -5,21 +5,21 @@
 }
 
 .cta {
-  background-color: var(--color-orange-orange1);
-  color: black;
+  background-color: var(--color-purple-purple1);
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: 2rem;
   transition: all 0.2s ease-in-out;
 }
 .cta:nth-child(2) {
-  background-color: var(--color-orange-orange2);
+  background-color: var(--color-purple-purple2);
 }
 .cta:nth-child(3) {
-  background-color: var(--color-orange-orange3);
+  background-color: var(--color-purple-purple3);
 }
 .cta:hover {
   filter: brightness(1.25);

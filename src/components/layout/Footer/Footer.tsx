@@ -1,4 +1,6 @@
 import styles from './Footer.module.css';
+import Realtor from '../../../assets/realtor-icon.svg?react';
+import EHO from '../../../assets/equal-housing-opportunity-icon.svg?react';
 
 function Footer() {
   return (
@@ -31,7 +33,9 @@ function Footer() {
             title='National Association of Realtors. Opens a new window.'
             target='_blank'
           >
-            <img src='/icon-realtor.jpg' alt='' role='presentation' />
+            <span className={styles.externalLinkIcon}>
+              <Realtor />
+            </span>
           </a>
           <a
             className={styles.externalLink}
@@ -40,7 +44,9 @@ function Footer() {
             target='_blank'
             rel='nofollow'
           >
-            <img src='/icon-equal-housing.jpg' alt='' role='presentation' />
+            <span className={styles.externalLinkIcon}>
+              <EHO />
+            </span>{' '}
           </a>
         </div>
         <nav id='footer-nav' className={styles.footerNav}>

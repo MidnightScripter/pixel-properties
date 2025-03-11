@@ -37,7 +37,7 @@ Hero
   position: relative;
   width: clamp(10rem, 95vw, 31rem);
   border-radius: var(--input-border-radius);
-  gap: 1rem;
+  gap: 2rem;
 }
 .buttonContainer {
   flex: 0 1 15%;

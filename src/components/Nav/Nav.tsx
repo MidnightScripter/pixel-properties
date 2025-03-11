@@ -1,46 +1,62 @@
+import { useState } from 'react';
+import classNames from 'classnames';
 import Button from '../Button/Button';
 import styles from './Nav.module.css';
+import Menu from '../../assets/menu.svg?react';
+import Close from '../../assets/close.svg?react';
 
 function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  function handleClick() {
+    setMenuOpen((prevState) => !prevState);
+  }
+  const menuClasses = classNames(styles.nav, styles.mainNavLinks, {
+    [styles.active]: menuOpen,
+  });
+
   return (
     <nav id='main-nav' className={styles.mainNav}>
       <a
-        className={`${styles.link} ${styles.logo}`}
+        className={styles.logo}
         href='#'
         title='Go to Pixel Properties Homepage'
       >
         <img src='/logo.svg' alt='' role='presentation' />
       </a>
-      <button className={styles.mobileNavButton}>
-        <img src='/icon-hamburger.png' alt='Open Navigation' />
-      </button>
-      <menu className={`${styles.mainNavLinks} ${styles.nav}`}>
-        <li>
-          <a className={styles.link} href='#'>
-            Find a Home
-          </a>
+      {!menuOpen ? (
+        <button
+          className={styles.mobileNavButton}
+          aria-label='Open Navigation'
+          onClick={handleClick}
+        >
+          <Menu />
+        </button>
+      ) : (
+        <button
+          className={styles.mobileNavButton}
+          aria-label='Close Navigation'
+          onClick={handleClick}
+        >
+          <Close />
+        </button>
+      )}
+      <menu className={menuClasses}>
+        <li className={styles.link}>
+          <a href='#'>Find a Home</a>
         </li>
-        <li>
-          <a className={styles.link} href='#'>
-            Sell a Home
-          </a>
+        <li className={styles.link}>
+          <a href='#'>Sell a Home</a>
         </li>
-        <li>
-          <a className={styles.link} href='#'>
-            Agents
-          </a>
+        <li className={styles.link}>
+          <a href='#'>Agents</a>
         </li>
-        <li>
-          <a className={styles.link} href='#'>
-            About Us
-          </a>
+        <li className={styles.link}>
+          <a href='#'>About Us</a>
         </li>
-        <li>
-          <a className={styles.link} href='#'>
-            Contact
-          </a>
+        <li className={styles.link}>
+          <a href='#'>Contact</a>
         </li>
-        <li>
+        <li className={styles.link}>
           <Button label='Login' />
         </li>
       </menu>

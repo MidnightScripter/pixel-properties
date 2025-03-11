@@ -4,7 +4,7 @@ Pixel Properties Real Estate quick page.
 
 ## Summary
 
-This was originally a technical submission for an interview that I did, though all original company references, names, and pictures were swapped out to serve as a practical demo. Originally, this was a simple HTML submission for CSS structure demonstration, but it's been updated to be a full mini React/Typescript based site.
+This was a technical submission for an interview that I did however all original company references, names, icons, and other image assets were swapped out. Originally, this was a simple HTML submission for CSS proficiency and proper semantic structure demonstration, but it's been updated and expanded to be a full mini React/Typescript based site.
 
 ## Author Info
 
@@ -18,14 +18,17 @@ This was originally a technical submission for an interview that I did, though a
 
 - React
   - Vite project creation
+  - Vite svgr for better svg import
   - React classnames
 - CSS Modules
 - TypeScript
+- Mock Service Worker (property listings API mockup)
 
 ## Running
 
 npm run dev
-Should open on http://localhost:5173 by default
+
+Normally opens on http://localhost:5173 by default
 
 ## Contributing
 
