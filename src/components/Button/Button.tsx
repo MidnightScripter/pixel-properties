@@ -27,6 +27,7 @@ function Button({
       className={buttonClasses}
       type={props.type}
       aria-label={buttonIconOnly ? label : undefined}
+      {...props}
     >
       {Icon && (
         <span className={styles.icon}>
