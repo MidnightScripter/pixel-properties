@@ -19,9 +19,12 @@ Navigation
   outline: 2px solid var(--color-orange-orange3);
   border-radius: 0.25rem;
 }
-.link:hover {
-  color: var(--color-orange-orange2);
+.link:hover,
+.savedListings:hover,
+.logo:hover {
+  color: var(--color-blue-blue4);
 }
+
 .mainNav {
   display: flex;
   justify-content: space-between;
@@ -29,11 +32,11 @@ Navigation
   top: 0;
   left: 0;
   right: 0;
-  padding: 1rem 1rem 4rem;
+  padding: 1.5rem 2rem 4rem;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.6) 25%,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.7) 30%,
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 3;
@@ -65,7 +68,27 @@ Navigation
   position: relative;
   z-index: 11;
 }
-
+.savedListings {
+  color: white;
+  position: relative;
+  min-width: 3rem;
+  margin: 0 1rem 0 auto;
+}
+.listingsCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-purple-purple3);
+  color: white;
+  border-radius: 100%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  padding-top: 0.2rem;
+}
 @media (min-width: 1024px) {
   .nav {
     display: flex;
@@ -84,10 +107,15 @@ Navigation
     transition: none;
     padding: 0;
     width: auto;
+    margin-left: auto;
   }
   .link {
     font-size: 1rem;
     padding: 0;
     width: auto;
+  }
+  .savedListings {
+    order: 3;
+    margin: 0 0 0 1rem;
   }
 }

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import Button from '../Button/Button';
 import styles from './Nav.module.css';
 import Menu from '../../assets/menu.svg?react';
 import Close from '../../assets/close.svg?react';
+import Bookmark from '../../assets/bookmark-icon.svg?react';
+import Logo from '../../assets/logo.svg?react';
+import { Link } from 'react-router';
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,13 +18,21 @@ function Nav() {
 
   return (
     <nav id='main-nav' className={styles.mainNav}>
-      <a
+      <Link
         className={styles.logo}
-        href='#'
         title='Go to Pixel Properties Homepage'
+        to={{
+          pathname: '/',
+        }}
       >
-        <img src='/logo.svg' alt='' role='presentation' />
-      </a>
+        <Logo />
+      </Link>
+      <button aria-label='Saved Listings' className={styles.savedListings}>
+        <Bookmark />
+        <span className={styles.listingsCount} aria-label={`0 Listings Saved`}>
+          0
+        </span>
+      </button>
       {!menuOpen ? (
         <button
           className={styles.mobileNavButton}
@@ -55,9 +65,6 @@ function Nav() {
         </li>
         <li className={styles.link}>
           <a href='#'>Contact</a>
-        </li>
-        <li className={styles.link}>
-          <Button label='Login' />
         </li>
       </menu>
     </nav>

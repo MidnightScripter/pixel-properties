@@ -1,8 +1,8 @@
 import styles from './MosaicCTA.module.css';
 import MosaicCTABlock from './MosaicCTABlock';
 import House from '../../../assets/house-icon.svg?react';
-import CheckCircle from '../../../assets/check-circle-icon.svg?react';
-import LocationIcon from '../../../assets/location-icon.svg?react';
+import Bookmark from '../../../assets/bookmark-icon.svg?react';
+import Contact from '../../../assets/contact-icon.svg?react';
 
 function MosaicCTA() {
   return (
@@ -11,21 +11,20 @@ function MosaicCTA() {
         <MosaicCTABlock
           link='#'
           icon={House}
-          title='Open Houses'
-          text='Plan your weekend home hunting by exploring our upcoming open
-            houses.'
+          title='Sell Your Home'
+          text='Use our tools to estimate a price for your home then connect with one of our agents.'
         />
         <MosaicCTABlock
           link='#'
-          icon={CheckCircle}
-          title='Create Account'
-          text='Sign up and be the first to see the newest listings emailed daily.'
+          icon={Bookmark}
+          title='See Your Saved Listings'
+          text="Review the property listings you've saved previously."
         />
         <MosaicCTABlock
           link='#'
-          icon={LocationIcon}
-          title='Search by Map'
-          text='Find the perfect neighborhood with our advanced map search.'
+          icon={Contact}
+          title='Contact Us'
+          text="If you're ready to being your search, or have a questions, feel free to contact us."
         />
       </div>
     </section>

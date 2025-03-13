@@ -4,15 +4,13 @@ Hero
 .heroContainer {
   width: 100vw;
   width: 100dvw;
-  min-height: 19rem;
-  height: 30vh;
-  height: 30dvh;
+  height: 50vh;
+  height: 50dvh;
   position: relative;
 }
 .fullHeight {
   height: 100vh;
   height: 100dvh;
-  min-height: 35rem;
 }
 .backgroundImage {
   position: absolute;

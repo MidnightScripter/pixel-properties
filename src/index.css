@@ -153,3 +153,6 @@ body {
   white-space: nowrap;
   width: 1px;
 }
+.link {
+  border-bottom: 1px dashed white;
+}

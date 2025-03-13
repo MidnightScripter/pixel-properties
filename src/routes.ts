@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import App from './App';
-import Search from './pages/Search';
+import Search from './pages/Search/Search';
+import Index from './pages/Index/Index';
 
 interface RouteConfig {
   path: string;
@@ -10,7 +10,7 @@ interface RouteConfig {
 const routes: RouteConfig[] = [
   {
     path: '/',
-    element: App,
+    element: Index,
   },
   {
     path: '/search',

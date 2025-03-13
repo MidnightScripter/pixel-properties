@@ -35,6 +35,7 @@ Footer
 }
 .copyright {
   font-size: 0.9rem;
+  font-weight: 900;
 }
 .nav {
   display: flex;

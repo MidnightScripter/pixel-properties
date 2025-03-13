@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { formatter } from '../../../util/utils';
-import styles from './FeaturedListings.module.css';
+import styles from './ListingGrid.module.css';
 
-export interface FeaturedListingType {
+export interface ListingGridType {
   id: string;
   picture: string;
   address: string;
@@ -11,7 +11,7 @@ export interface FeaturedListingType {
   baths: string;
 }
 
-function FeaturedListings() {
+function ListingGrid() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function FeaturedListings() {
   }, []);
   return (
     <section>
-      <h2 className={`display2 ${styles.headline}`}>Featured Properties</h2>
+      <h2 className={`display2 ${styles.headline}`}>Results</h2>
       <ul className={styles.listingWrapper}>
         {data
           ? data.map(
@@ -42,7 +42,7 @@ function FeaturedListings() {
                 price,
                 beds,
                 baths,
-              }: FeaturedListingType) => {
+              }: ListingGridType) => {
                 return (
                   <li key={id} className={styles.listing}>
                     <a
@@ -72,4 +72,4 @@ function FeaturedListings() {
     </section>
   );
 }
-export default FeaturedListings;
+export default ListingGrid;
