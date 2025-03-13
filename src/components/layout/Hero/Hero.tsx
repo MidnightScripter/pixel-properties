@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
 import styles from './Hero.module.css';
@@ -24,17 +25,29 @@ function Hero() {
   }
 
   function getLatLong() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        function (currentPosition) {
-          lookup(currentPosition);
-        },
-        function (error) {
-          console.log('Error: ' + error.code);
-        }
-      );
-    }
+    return new Promise<void>((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (currentPosition) {
+            lookup(currentPosition).then(() => resolve());
+          },
+          function (error) {
+            console.log('Error: ' + error.code);
+            reject(error);
+          }
+        );
+      }
+    });
   }
+  const navigate = useNavigate();
+  const handleSearchNearby = async () => {
+    try {
+      await getLatLong();
+      navigate(`/search?zipcode=${currentZipcode}`);
+    } catch (error) {
+      console.error('Error in handleSearchNearby:', error);
+    }
+  };
   return (
     <section id='hero'>
       <div className={styles.container}>
@@ -61,7 +74,7 @@ function Hero() {
         <Button
           label='Search Near Me'
           icon={LocationIcon}
-          onClick={getLatLong}
+          onClick={handleSearchNearby}
         />
       </div>
     </section>
