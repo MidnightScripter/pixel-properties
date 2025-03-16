@@ -5,6 +5,7 @@ export interface InputProps {
   hideLabel?: boolean;
   inputType?: React.HTMLInputTypeAttribute;
   placeholder?: string;
+  inputName?: string;
 }
 
 function Input({
@@ -12,6 +13,8 @@ function Input({
   hideLabel = false,
   inputType = 'text',
   placeholder,
+  inputName,
+  ...props
 }: InputProps) {
   const generateLabel = (labelText: string) => {
     return labelText.replace(/\s/gi, '').toLowerCase();
@@ -27,10 +30,11 @@ function Input({
       </label>
       <input
         className={styles.input}
-        name={generateLabel(label)}
+        name={inputName || generateLabel(label)}
         id={generateLabel(label)}
         type={inputType}
         placeholder={placeholder}
+        {...props}
       />
     </div>
   );

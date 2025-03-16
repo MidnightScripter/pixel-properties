@@ -10,7 +10,7 @@ This was a technical submission for an interview that I did however all original
 
 [Crystal C - Email](mailto:crystal.m.clark@proton.me)
 
-[Github](https://github.com/Only-of-Type)
+[Github(@MidnightScripter)](https://github.com/MidnightScripter)
 
 [LinkedIn](https://www.linkedin.com/in/crystal-clark)
 
@@ -20,7 +20,8 @@ This was a technical submission for an interview that I did however all original
   - Vite project creation
   - Vite svgr for better svg import
   - React classnames
-- CSS Modules
+  - React router
+- CSS Modules (Vite Built-in)
 - TypeScript
 - Mock Service Worker (property listings API mockup)
 
@@ -29,6 +30,18 @@ This was a technical submission for an interview that I did however all original
 npm run dev
 
 Normally opens on http://localhost:5173 by default
+
+## Icons and Images
+
+Icons from [material.io](https://fonts.google.com/icons?selected=Material+Symbols+Outlined)
+
+Images from [Unsplash](https://unsplash.com)
+
+## Special Notes
+
+Please note that this is a Demo/Portfolio Site, not a real company and these properties and any site content or information is _NOT REAL_. The data is made up and inspired by an RPG from the 90s.
+
+Note that due to browser restrictions on navigator.geolocation, Search Near Me sometimes does not properly return your location when running locally. Firefox (not in-private) tabs seem to be the most reliable for testing this feature while running locally.
 
 ## Contributing
 

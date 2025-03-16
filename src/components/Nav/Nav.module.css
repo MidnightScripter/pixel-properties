@@ -48,7 +48,7 @@ Navigation
   position: fixed;
   top: 0;
   bottom: 0;
-  right: -100vw;
+  right: -150vw;
   transition: right 0.7s ease-in-out;
   text-transform: uppercase;
   padding: 20vh 10vw;

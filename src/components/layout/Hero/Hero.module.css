@@ -5,8 +5,8 @@ Hero
   width: 100vw;
   width: 100dvw;
   min-height: 19rem;
-  height: 30vh;
-  height: 30dvh;
+  height: 40vh;
+  height: 40dvh;
   position: relative;
 }
 .fullHeight {

@@ -1,7 +1,8 @@
 .listingWrapper {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  margin: 1rem 1rem 10rem;
+  width: 100%;
 }
 .headline {
   color: var(--color-blue-blue3);
@@ -11,17 +12,32 @@
 }
 .listing {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
 }
 .listingImage {
-  filter: brightness(0.6);
+  width: var(--listing-featured-size-width);
+  box-shadow: var(--listing-featured-shadow);
+  border-radius: var(--listing-featured-border-radius);
+  transform: translateX(-5vw);
+  /* filter: brightness(0.6);
   position: relative;
   z-index: 0;
   aspect-ratio: 1.498;
-  object-fit: cover;
+  object-fit: cover; */
 }
 .listingLink {
   position: relative;
+}
+.descriptionBlock {
+  color: white;
+  padding: 1rem 2rem;
+  width: var(--listing-featured-size-width);
+  box-shadow: var(--listing-featured-shadow);
+  border-radius: var(--listing-featured-border-radius);
+  background-color: var(--listing-featured-color-background-color);
+  transform: translate(5vw, -2rem);
 }
 .listingText {
   position: absolute;
@@ -31,8 +47,8 @@
   margin: 1rem;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .listingWrapper {
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   }
-}
+} */

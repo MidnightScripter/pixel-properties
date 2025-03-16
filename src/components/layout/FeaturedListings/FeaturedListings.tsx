@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { formatter } from '../../../util/utils';
 import styles from './FeaturedListings.module.css';
+import FeaturedListing from './FeaturedListing';
 
 export interface FeaturedListingType {
   id: string;
@@ -9,6 +9,8 @@ export interface FeaturedListingType {
   price: string;
   beds: string;
   baths: string;
+  title: string;
+  description: string;
 }
 
 function FeaturedListings() {
@@ -17,7 +19,7 @@ function FeaturedListings() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/data');
+        const response = await fetch('/api/data/featured');
         if (!response.ok) {
           throw new Error('Bad Response');
         }
@@ -32,7 +34,14 @@ function FeaturedListings() {
   return (
     <section>
       <h2 className={`display2 ${styles.headline}`}>Featured Properties</h2>
-      <ul className={styles.listingWrapper}>
+      <div className={styles.listingWrapper}>
+        {data
+          ? data.map((data) => {
+              return <FeaturedListing listingData={data} />;
+            })
+          : 'Loading'}
+      </div>
+      {/* <ul className={styles.listingWrapper}>
         {data
           ? data.map(
               ({
@@ -68,7 +77,7 @@ function FeaturedListings() {
               }
             )
           : 'Loading'}
-      </ul>
+      </ul> */}
     </section>
   );
 }

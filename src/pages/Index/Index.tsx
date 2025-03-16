@@ -69,6 +69,7 @@ function Index() {
               label='Enter a City or Zip Code'
               hideLabel
               placeholder='Enter a City or Zip Code'
+              inputName='cityZip'
             />
             <span className={styles.buttonContainer}>
               <Button icon={SearchIcon} buttonIconOnly label='Submit Search' />

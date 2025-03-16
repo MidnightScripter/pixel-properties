@@ -1,0 +1,10 @@
+:root {
+  /* Featured listings */
+  --listing-featured-size-width: 80vw;
+  --listing-featured-border-radius: 0.5rem;
+
+  --listing-featured-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+
+  --listing-featured-color-text-color: white;
+  --listing-featured-color-background-color: var(--color-blue-blue3);
+}
