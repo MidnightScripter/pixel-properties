@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { formatter } from '../../../util/utils';
 import styles from './ListingGrid.module.css';
+import { Link } from 'react-router';
 
 export interface ListingGridType {
   id: string;
@@ -9,6 +10,8 @@ export interface ListingGridType {
   price: string;
   beds: string;
   baths: string;
+  title: string;
+  description: string;
 }
 
 function ListingGrid() {
@@ -34,39 +37,30 @@ function ListingGrid() {
       <h2 className={`headline2 ${styles.headline}`}>Results</h2>
       <ul className={styles.listingWrapper}>
         {data
-          ? data.map(
-              ({
-                id,
-                picture,
-                address,
-                price,
-                beds,
-                baths,
-              }: ListingGridType) => {
-                return (
-                  <li key={id} className={styles.listing}>
-                    <a
-                      className={styles.listingLink}
-                      href='#'
-                      title='View Details on 1234 Main Street'
-                    >
-                      <img
-                        src={`/` + picture}
-                        className={styles.listingImage}
-                        alt='1234 Main Street Single Family Home: 4 Beds 2 Baths'
-                      />
-                      <div className={styles.listingText}>
-                        <p>{address}</p>
-                        <p>{formatter.format(Number(price))}</p>
-                        <p>
-                          Beds: {beds} &#8226; Baths: {baths}
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                );
-              }
-            )
+          ? data.map((data: ListingGridType) => {
+              return (
+                <li key={data.id} className={styles.listing}>
+                  <Link
+                    className={styles.listingLink}
+                    to={{ pathname: `/property/${data.id}` }}
+                    title={`View Details on ${data.title}`}
+                  >
+                    <img
+                      src={`/${data.picture}`}
+                      className={styles.listingImage}
+                      alt={`${data.title}: ${data.beds} Beds 2 ${data.baths}`}
+                    />
+                    <div className={styles.listingText}>
+                      <p>{data.address}</p>
+                      <p>{formatter.format(Number(data.price))}</p>
+                      <p>
+                        Beds: {data.beds} &#8226; Baths: {data.baths}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })
           : 'Loading'}
       </ul>
     </section>
