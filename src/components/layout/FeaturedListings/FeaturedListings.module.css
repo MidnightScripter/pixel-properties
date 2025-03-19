@@ -3,7 +3,7 @@
   --listing-featured-size-width: clamp(16rem, 80vw, 40rem);
   --listing-featured-border-radius: 0.5rem;
 
-  --listing-featured-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+  --listing-featured-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.4);
 
   --listing-featured-color-text-color: var(--color-blue-blue3);
   --listing-featured-color-background-color: white;
@@ -53,7 +53,7 @@
   justify-content: space-around;
   gap: 1rem;
   color: var(--listing-featured-color-text-color);
-  padding: 2rem;
+  padding: 2rem 2rem 1rem;
   width: var(--listing-featured-size-width);
   box-shadow: var(--listing-featured-shadow);
   border-radius: var(--listing-featured-border-radius);
@@ -75,6 +75,62 @@
 .price {
   font-weight: 600;
   font-size: 1.25rem;
+}
+.link {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: transparent;
+  background: linear-gradient(
+    to right,
+    var(--color-blue-blue2) 0%,
+    var(--color-blue-blue2) 30%,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 255, 1) 80%,
+    var(--color-blue-blue2) 90%,
+    var(--color-blue-blue2) 100%
+  );
+  background-position: -50%;
+  background-size: 200% 100%;
+  background-clip: text;
+  transition: all 1.25s;
+  z-index: 2;
+}
+.seeMoreIcon {
+  margin-left: 0.5rem;
+}
+.linkWrapper {
+  position: relative;
+  overflow: hidden;
+}
+.linkBackground {
+  content: '';
+  display: block;
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    var(--color-blue-blue2) 20%,
+    var(--color-blue-blue2) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  width: 125%;
+  height: 100%;
+  top: 0;
+  transform: translateX(-125%) skewX(200deg);
+  transition: all 1.5s;
+  z-index: 1;
+}
+.linkWrapper:hover .link {
+  background-position: -250%;
+}
+.linkWrapper:hover .linkBackground {
+  transform: translateX(125%);
 }
 @media (min-width: 1240px) {
   :root {

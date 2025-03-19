@@ -2,6 +2,7 @@ import { FeaturedListingType } from './FeaturedListings';
 import styles from './FeaturedListings.module.css';
 import { formatter } from '../../../util/utils';
 import SaveListing from '../../SaveListing/SaveListing';
+import { Link } from 'react-router';
 
 export interface FeaturedListingProps {
   imageOnRight?: boolean;
@@ -32,6 +33,19 @@ function FeaturedListing({ imageOnRight, listingData }: FeaturedListingProps) {
         <p className={styles.price}>
           {formatter.format(Number(listingData.price))}
         </p>
+        <span className={styles.linkWrapper}>
+          <Link
+            to={{ pathname: '/property' }}
+            aria-label={`See Details about ${listingData.title}`}
+            className={styles.link}
+          >
+            See More Details
+            <span aria-hidden className={styles.seeMoreIcon}>
+              &#62;
+            </span>
+          </Link>
+          <span aria-hidden className={styles.linkBackground}></span>
+        </span>
       </div>
     </div>
   );

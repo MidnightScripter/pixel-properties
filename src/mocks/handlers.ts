@@ -22,7 +22,7 @@ export const handlers = [
         price: '550000',
         beds: '4',
         baths: '3',
-        title: 'Charming Family Home on HAL Lab Lane',
+        title: 'Modern Elegance on HAL Lab Lane',
         description:
           'This delightful 4-bedroom, 3-bathroom home at 426a HAL Lab Ln offers comfort and convenience in the heart of Onett, Eagleland. It’s the perfect blend of spacious living and a serene, family-friendly neighborhood.',
       },
@@ -82,7 +82,7 @@ export const handlers = [
         price: '550000',
         beds: '4',
         baths: '3',
-        title: 'Charming Family Home on HAL Lab Lane',
+        title: 'Modern Elegance on HAL Lab Lane',
         description:
           'This delightful 4-bedroom, 3-bathroom home at 426a HAL Lab Ln offers comfort and convenience in the heart of Onett, Eagleland. It’s the perfect blend of spacious living and a serene, family-friendly neighborhood.',
       },
