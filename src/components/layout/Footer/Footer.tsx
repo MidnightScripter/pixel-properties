@@ -10,7 +10,7 @@ function Footer() {
           alt='Go To Pixel Properties Homepage'
         />
         <address>
-          <p className='display3'>Pixel Properties Office</p>
+          <p className='headline3'>Pixel Properties Office</p>
           <p>123 Starman Lane</p>
           <p>Onett, Eagleland 11111</p>
           <p>

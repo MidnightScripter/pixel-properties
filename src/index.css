@@ -41,7 +41,8 @@ Normalize CSS
   box-sizing: border-box;
 }
 html,
-body {
+body,
+#root {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -156,5 +157,5 @@ body {
   width: 1px;
 }
 .link {
-  border-bottom: 1px dashed white;
+  border-bottom: 1px dashed var(--color-blue-blue1);
 }

@@ -31,7 +31,7 @@ function ListingGrid() {
   }, []);
   return (
     <section>
-      <h2 className={`display2 ${styles.headline}`}>Results</h2>
+      <h2 className={`headline2 ${styles.headline}`}>Results</h2>
       <ul className={styles.listingWrapper}>
         {data
           ? data.map(

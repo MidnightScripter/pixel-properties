@@ -33,7 +33,7 @@ function FeaturedListings() {
   }, []);
   return (
     <section className={styles.listingContainer}>
-      <h2 className={`display2 ${styles.headline}`}>Featured Properties</h2>
+      <h2 className={`headline2 ${styles.headline}`}>Featured Properties</h2>
       <div className={styles.listingWrapper}>
         {data
           ? data.map((data) => {

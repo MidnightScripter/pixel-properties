@@ -14,25 +14,29 @@ body {
 .bold {
   font-weight: 700;
 }
-.display1 {
+.headline1 {
   font-family: var(--font-headline-family-default);
   font-size: 4rem;
   text-transform: uppercase;
   line-height: 1;
 }
-.display2 {
+.headline2 {
   font-family: var(--font-headline-family-default);
   font-size: 3rem;
   line-height: 1;
   font-weight: 700;
 }
-.display3 {
+.headline3 {
   font-size: 1.75rem;
   line-height: 1.25;
   font-weight: 500;
 }
-.display4 {
+.headline4 {
   font-size: 1.5rem;
   line-height: 1.25;
   font-weight: 500;
+}
+.display1 {
+  font-size: 4rem;
+  line-height: 1;
 }

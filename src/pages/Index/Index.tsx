@@ -57,10 +57,10 @@ function Index() {
     <>
       <Nav />
       <Hero fullHeight heroImage='/hero.jpg'>
-        <p className={`${styles.headline} display1`}>
+        <p className={`${styles.headline} headline1`}>
           Your Perfect <span className='bold'>Home</span>
         </p>
-        <h1 className='display3'>
+        <h1 className='headline3'>
           Find your perfect home in the Onett, Eagleland area
         </h1>
         <form action='' name='search-form'>

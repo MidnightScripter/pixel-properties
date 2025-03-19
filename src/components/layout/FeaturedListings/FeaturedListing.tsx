@@ -17,7 +17,11 @@ function FeaturedListing({ imageOnRight, listingData }: FeaturedListingProps) {
       className={`${imageOnRight ? styles.imageOnRight : ''} ${styles.listing}`}
     >
       <div className={styles.imageBlock}>
-        <img className={styles.listingImage} src={listingData.picture} alt='' />
+        <img
+          className={styles.listingImage}
+          src={`/${listingData.picture}`}
+          alt=''
+        />
         <span className={styles.saveListing}>
           <SaveListing onClick={() => handleSave(listingData.id)} />
         </span>
@@ -35,7 +39,7 @@ function FeaturedListing({ imageOnRight, listingData }: FeaturedListingProps) {
         </p>
         <span className={styles.linkWrapper}>
           <Link
-            to={{ pathname: '/property' }}
+            to={{ pathname: `/property/${listingData.id}` }}
             aria-label={`See Details about ${listingData.title}`}
             className={styles.link}
           >

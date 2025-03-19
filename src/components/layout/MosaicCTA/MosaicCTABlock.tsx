@@ -18,7 +18,7 @@ function MosaicCTABlock({
       <span className={styles.icon}>
         <Icon />
       </span>
-      <h2 className='display4'>{title}</h2>
+      <h2 className='headline4'>{title}</h2>
       <p>{text}</p>
     </a>
   );

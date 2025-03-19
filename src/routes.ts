@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Search from './pages/Search/Search';
 import Index from './pages/Index/Index';
+import Property from './pages/Property/Property';
 
 interface RouteConfig {
   path: string;
@@ -15,6 +16,10 @@ const routes: RouteConfig[] = [
   {
     path: '/search',
     element: Search,
+  },
+  {
+    path: '/property/:propertyId',
+    element: Property,
   },
   // {
   //   path: '/contact',

@@ -20,6 +20,7 @@
   width: 100%;
 }
 .headline {
+  color: white;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 3rem;
@@ -48,6 +49,7 @@
   filter: drop-shadow(0 0 1rem #000000);
 }
 .descriptionBlock {
+  text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
