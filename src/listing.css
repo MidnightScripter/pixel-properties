@@ -5,6 +5,6 @@
 
   --listing-featured-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
 
-  --listing-featured-color-text-color: white;
-  --listing-featured-color-background-color: var(--color-blue-blue3);
+  --listing-featured-color-text-color: var(--color-blue-blue3);
+  --listing-featured-color-background-color: white;
 }

@@ -1,3 +1,18 @@
+:root {
+  /* Featured listings */
+  --listing-featured-size-width: clamp(16rem, 80vw, 40rem);
+  --listing-featured-border-radius: 0.5rem;
+
+  --listing-featured-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+
+  --listing-featured-color-text-color: var(--color-blue-blue3);
+  --listing-featured-color-background-color: white;
+}
+
+.listingContainer {
+  background-color: var(--color-blue-blue3);
+  padding-top: 5rem;
+}
 .listingWrapper {
   display: flex;
   flex-direction: column;
@@ -5,10 +20,9 @@
   width: 100%;
 }
 .headline {
-  color: var(--color-blue-blue3);
   text-transform: uppercase;
   text-align: center;
-  margin: 5rem auto 3rem;
+  margin-bottom: 3rem;
 }
 .listing {
   display: flex;
@@ -16,39 +30,77 @@
   align-items: center;
   padding: 2rem 0;
 }
-.listingImage {
-  width: var(--listing-featured-size-width);
+.imageBlock {
+  transform: translateX(-5vw);
   box-shadow: var(--listing-featured-shadow);
   border-radius: var(--listing-featured-border-radius);
-  transform: translateX(-5vw);
-  /* filter: brightness(0.6);
+  width: var(--listing-featured-size-width);
   position: relative;
-  z-index: 0;
-  aspect-ratio: 1.498;
-  object-fit: cover; */
 }
-.listingLink {
-  position: relative;
+.listingImage {
+  border-radius: var(--listing-featured-border-radius);
+}
+.saveListing {
+  position: absolute;
+  color: white;
+  inset: 1rem 1rem auto auto;
+  width: 4rem;
+  filter: drop-shadow(0 0 1rem #000000);
 }
 .descriptionBlock {
-  color: white;
-  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  color: var(--listing-featured-color-text-color);
+  padding: 2rem;
   width: var(--listing-featured-size-width);
   box-shadow: var(--listing-featured-shadow);
   border-radius: var(--listing-featured-border-radius);
   background-color: var(--listing-featured-color-background-color);
   transform: translate(5vw, -2rem);
+  flex-grow: 1;
 }
-.listingText {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  margin: 1rem;
+.title {
+  font-size: 1.5rem;
+  line-height: 1.25;
 }
-
-/* @media (min-width: 768px) {
-  .listingWrapper {
-    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+.bedsBaths {
+  display: flex;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.25rem;
+  gap: 1rem;
+}
+.price {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+@media (min-width: 1240px) {
+  :root {
+    --listing-featured-size-width: clamp(10rem, 35vw, 40rem);
   }
-} */
+  .listing {
+    flex: 0 0 45%;
+  }
+  .listingWrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .descriptionBlock {
+    transform: translate(1rem, -2rem);
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --listing-featured-size-width: clamp(10rem, 25vw, 35rem);
+  }
+  .imageBlock {
+    transform: translateX(-3rem);
+  }
+
+  .listing {
+    flex: 0 0 30%;
+  }
+}

@@ -13,7 +13,7 @@ Footer
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-blue-blue3);
+  background-color: var(--color-purple-purple2);
   width: 100%;
   padding: 2rem;
   gap: 2rem;
@@ -22,7 +22,7 @@ Footer
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--color-blue-blue1);
+  background-color: var(--color-purple-purple1);
   padding: 1rem;
   width: 100%;
 }

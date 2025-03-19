@@ -29,9 +29,10 @@ Navigation
   display: flex;
   justify-content: space-between;
   position: fixed;
-  top: 0;
+  /* top: 0;
   left: 0;
-  right: 0;
+  right: 0; */
+  inset: 0 0 auto 0;
   padding: 1.5rem 2rem 4rem;
   background: linear-gradient(
     180deg,
@@ -46,9 +47,10 @@ Navigation
   align-items: center;
   background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
-  top: 0;
+  inset: 0 -150vw 0 auto;
+  /* top: 0;
   bottom: 0;
-  right: -150vw;
+  right: -150vw; */
   transition: right 0.7s ease-in-out;
   text-transform: uppercase;
   padding: 20vh 10vw;
@@ -73,11 +75,13 @@ Navigation
   position: relative;
   min-width: 3rem;
   margin: 0 1rem 0 auto;
+  z-index: 2;
 }
 .listingsCount {
   position: absolute;
-  top: 0;
-  right: 0;
+  inset: 0 0 auto auto;
+  /*top: 0;
+  right: 0; */
   background-color: var(--color-purple-purple3);
   color: white;
   border-radius: 100%;

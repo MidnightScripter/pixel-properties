@@ -1,5 +1,4 @@
 @import url('typography.css');
-@import url('listing.css');
 
 /* =============================================================================
 CSS Variables
@@ -17,6 +16,7 @@ CSS Variables
   --color-purple-purple3: #8b5887;
   --color-purple-purple4: #a57ba1;
 
+  --color-blush: rgb(138, 61, 56);
   --color-orange-orange1: #d64b14;
   --color-orange-orange2: #f0703a;
   --color-orange-orange3: #fda654;
