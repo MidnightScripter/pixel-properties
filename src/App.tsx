@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Nav />
-      <Hero fullHeight heroImage='/hero.jpg'></Hero>
+      <Hero fullHeight heroImage='/hero.jpg' heroHeadline='App'></Hero>
       <MosaicCTA />
       <FeaturedListings />
       <Footer />

@@ -108,6 +108,7 @@ Navigation
     transform: translateX(0);
     position: static;
     background-color: transparent;
+    backdrop-filter: none;
     gap: 1rem;
     transition: none;
     padding: 0;

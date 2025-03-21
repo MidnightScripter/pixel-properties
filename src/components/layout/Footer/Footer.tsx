@@ -27,7 +27,7 @@ function Footer() {
         <p className={styles.copyright}>
           The only thing that is real is the developer,{' '}
           <a
-            className='link'
+            className={styles.externalLink}
             href='https://www.linkedin.com/in/crystal-clark'
             target='_blank'
           >

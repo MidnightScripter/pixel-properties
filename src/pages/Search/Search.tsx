@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router';
 import styles from './Search.module.css';
 import ListingGrid from '../../components/layout/ListingGrid/ListingGrid';
-import PageLayout from '../PageLayout/PageLayout';
+import Hero from '../../components/layout/Hero/Hero';
 
 function Search() {
   const location = useLocation();
@@ -9,19 +9,15 @@ function Search() {
   const zipcode = searchParams.get('zipcode');
   return (
     <>
-      <PageLayout
-        heroUrl='searchHero.webp'
-        heroHeadline='Property Search Results'
-      >
-        <div className={styles.searchTextBlock}>
-          <p>Your zipcode from location search is {zipcode}</p>
-          <p>
-            Since this is a demo, the zip has been changed to filter the demo
-            results
-          </p>
-        </div>
-        <ListingGrid />
-      </PageLayout>
+      <Hero heroImage='/searchHero.webp' heroHeadline='Search Properties' />
+      <div className={styles.searchTextBlock}>
+        <p>Your zipcode from location search is {zipcode}</p>
+        <p>
+          Since this is a demo, the zip has been changed to filter the demo
+          results
+        </p>
+      </div>
+      <ListingGrid />
     </>
   );
 }

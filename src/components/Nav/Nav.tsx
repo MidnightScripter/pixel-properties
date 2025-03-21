@@ -52,19 +52,19 @@ function Nav() {
       )}
       <menu className={menuClasses}>
         <li className={styles.link}>
-          <a href='#'>Find a Home</a>
+          <Link to={{ pathname: '/search' }}>Find a Home</Link>
         </li>
         <li className={styles.link}>
-          <a href='#'>Sell a Home</a>
+          <Link to={{ pathname: '/search' }}>Sell a Home</Link>
         </li>
         <li className={styles.link}>
-          <a href='#'>Agents</a>
+          <Link to={{ pathname: '/search' }}>Agents</Link>
         </li>
         <li className={styles.link}>
-          <a href='#'>About Us</a>
+          <Link to={{ pathname: '/search' }}>About Us</Link>
         </li>
         <li className={styles.link}>
-          <a href='#'>Contact</a>
+          <Link to={{ pathname: '/search' }}>Contact</Link>
         </li>
       </menu>
     </nav>

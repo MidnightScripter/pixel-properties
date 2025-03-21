@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw';
+import { http, HttpResponse, delay } from 'msw';
 
 const mockData = [
   {
@@ -245,10 +245,11 @@ export const handlers = [
       },
     ]);
   }),
-  http.get('/api/data/:propertyId', ({ params }) => {
+  http.get('/api/data/:propertyId', async ({ params }) => {
     const { propertyId } = params;
     const property = mockData.find((item) => item.id === propertyId);
     if (property) {
+      await delay();
       return HttpResponse.json(property); // Return the matching property
     } else {
       return new HttpResponse(null, { status: 404 }); // Handle missing property

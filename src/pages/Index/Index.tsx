@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import FeaturedListings from '../../components/layout/FeaturedListings/FeaturedListings';
-import Footer from '../../components/layout/Footer/Footer';
 import Hero from '../../components/layout/Hero/Hero';
 import MosaicCTA from '../../components/layout/MosaicCTA/MosaicCTA';
 import Nav from '../../components/Nav/Nav';
@@ -56,35 +55,44 @@ function Index() {
   return (
     <>
       <Nav />
-      <Hero fullHeight heroImage='/hero.jpg'>
-        <p className={`${styles.headline} headline1`}>
-          Your Perfect <span className='bold'>Home</span>
-        </p>
-        <h1 className='headline3'>
-          Find your perfect home in the Onett, Eagleland area
-        </h1>
-        <form action='' name='search-form'>
-          <div className={styles.searchContainer}>
-            <Input
-              label='Enter a City or Zip Code'
-              hideLabel
-              placeholder='Enter a City or Zip Code'
-              inputName='cityZip'
+      <Hero
+        fullHeight
+        heroImage='/hero.jpg'
+        heroHeadline={
+          <>
+            <p className={`headline1 ${styles.headline}`}>
+              Your Perfect <span className='bold'>Home</span>
+            </p>
+            <h1 className='headline3'>
+              Find your perfect home in the Onett, Eagleland area
+            </h1>
+            <form action='' name='search-form'>
+              <div className={styles.searchContainer}>
+                <Input
+                  label='Enter a City or Zip Code'
+                  hideLabel
+                  placeholder='Enter a City or Zip Code'
+                  inputName='cityZip'
+                />
+                <span className={styles.buttonContainer}>
+                  <Button
+                    icon={SearchIcon}
+                    buttonIconOnly
+                    label='Submit Search'
+                  />
+                </span>
+              </div>
+            </form>
+            <Button
+              label='Search Near Me'
+              icon={LocationIcon}
+              onClick={handleSearchNearby}
             />
-            <span className={styles.buttonContainer}>
-              <Button icon={SearchIcon} buttonIconOnly label='Submit Search' />
-            </span>
-          </div>
-        </form>
-        <Button
-          label='Search Near Me'
-          icon={LocationIcon}
-          onClick={handleSearchNearby}
-        />
-      </Hero>
+          </>
+        }
+      />
       <MosaicCTA />
       <FeaturedListings />
-      <Footer />
     </>
   );
 }

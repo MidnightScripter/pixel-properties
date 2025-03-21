@@ -4,7 +4,7 @@ Hero
 .heroContainer {
   width: 100vw;
   width: 100dvw;
-  min-height: 19rem;
+  min-height: 25rem;
   height: 40vh;
   height: 40dvh;
   position: relative;
@@ -68,4 +68,10 @@ Hero
 .heroContent {
   position: relative;
   z-index: 1;
+}
+@media (min-width: 768px) {
+  .fullHeight {
+    height: 85vh;
+    height: 85dvh;
+  }
 }
