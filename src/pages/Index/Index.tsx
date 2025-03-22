@@ -4,7 +4,6 @@ import Input from '../../components/Input/Input';
 import FeaturedListings from '../../components/layout/FeaturedListings/FeaturedListings';
 import Hero from '../../components/layout/Hero/Hero';
 import MosaicCTA from '../../components/layout/MosaicCTA/MosaicCTA';
-import Nav from '../../components/Nav/Nav';
 import styles from './Index.module.css';
 import SearchIcon from '../../assets/search-icon.svg?react';
 import LocationIcon from '../../assets/location-icon.svg?react';
@@ -54,7 +53,6 @@ function Index() {
   };
   return (
     <>
-      <Nav />
       <Hero
         fullHeight
         heroImage='/hero.jpg'
