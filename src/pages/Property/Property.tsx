@@ -7,6 +7,7 @@ import FeaturedListings, {
 import styles from './Property.module.css';
 import { formatter } from '../../util/utils';
 import Hero from '../../components/layout/Hero/Hero';
+import ErrorUI from '../ErrorUI/ErrorUI';
 
 function Property() {
   const { propertyId } = useParams();
@@ -43,21 +44,26 @@ function Property() {
           <p>Loading...</p>
         </>
       ) : hasError ? (
-        <>
-          <Hero heroImage='/propertyMissing.webp' heroHeadline='Not Found' />
-          <div
-            className={`${styles.searchTextBlock} ${styles.noPropertyTextBlock}`}
-          >
-            <h2>Sorry, but this property is no longer found</h2>
-            <p>
-              Consider some of the popular properties below or{' '}
-              <Link className='link' to={{ pathname: '/search' }}>
-                Head to our Property Search
-              </Link>
-            </p>
-          </div>
-          <FeaturedListings />
-        </>
+        <ErrorUI
+          errorImage='/propertyMissing.webp'
+          errorHeadline='Not Found'
+          messageBody={
+            <>
+              <div
+                className={`${styles.searchTextBlock} ${styles.noPropertyTextBlock}`}
+              >
+                <h2>Sorry, but this property is no longer found</h2>
+                <p>
+                  Consider some of the popular properties below or{' '}
+                  <Link className='link' to={{ pathname: '/search' }}>
+                    Head to our Property Search
+                  </Link>
+                </p>
+              </div>
+              <FeaturedListings />{' '}
+            </>
+          }
+        />
       ) : data ? (
         <>
           <Hero heroImage='/searchHero.webp' heroHeadline='Property Details' />
