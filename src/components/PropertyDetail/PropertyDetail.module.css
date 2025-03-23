@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  gap: 0.5rem;
+}
+.icon {
+  display: inline;
+}
+.detailType {
+  font-weight: 700;
+}

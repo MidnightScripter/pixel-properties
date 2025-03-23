@@ -1,7 +1,17 @@
 .searchTextBlock {
   color: var(--color-blue-blue1);
   text-align: left;
-  margin-top: 2rem;
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.headline {
+  text-align: center;
+}
+.detailRow {
+  display: flex;
+  gap: 2rem;
 }
 .noPropertyTextBlock {
   color: var(--color-blue-blue1);

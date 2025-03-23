@@ -40,6 +40,8 @@
 }
 .listingImage {
   border-radius: var(--listing-featured-border-radius);
+  aspect-ratio: 1.498;
+  object-fit: cover;
 }
 .saveListing {
   position: absolute;

@@ -30,6 +30,7 @@ function Footer() {
             className={styles.externalLink}
             href='https://www.linkedin.com/in/crystal-clark'
             target='_blank'
+            title='To Crystal C on LinkedIn'
           >
             Crystal C
           </a>

@@ -55,9 +55,6 @@ function Nav() {
           <Link to={{ pathname: '/search' }}>Find a Home</Link>
         </li>
         <li className={styles.link}>
-          <Link to={{ pathname: '/search' }}>Sell a Home</Link>
-        </li>
-        <li className={styles.link}>
           <Link to={{ pathname: '/search' }}>Agents</Link>
         </li>
         <li className={styles.link}>

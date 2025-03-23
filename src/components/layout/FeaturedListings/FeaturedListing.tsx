@@ -34,9 +34,7 @@ function FeaturedListing({ imageOnRight, listingData }: FeaturedListingProps) {
           <span role='presentation'>&#8226;</span>
           <span>Baths: {listingData.baths}</span>
         </p>
-        <p className={styles.price}>
-          {formatter.format(Number(listingData.price))}
-        </p>
+        <p className={styles.price}>{formatter.price(listingData.price)}</p>
         <span className={styles.linkWrapper}>
           <Link
             to={{ pathname: `/property/${listingData.id}` }}

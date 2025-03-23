@@ -4,10 +4,14 @@ import { Link } from 'react-router';
 import FeaturedListings, {
   FeaturedListingType,
 } from '../../components/layout/FeaturedListings/FeaturedListings';
+import PropertyDetail from '../../components/PropertyDetail/PropertyDetail';
 import styles from './Property.module.css';
 import { formatter } from '../../util/utils';
 import Hero from '../../components/layout/Hero/Hero';
 import ErrorUI from '../ErrorUI/ErrorUI';
+import Bed from '../../assets/bed-icon.svg?react';
+import Bath from '../../assets/shower-icon.svg?react';
+import Foot from '../../assets/sq-ft-icon.svg?react';
 
 function Property() {
   const { propertyId } = useParams();
@@ -68,21 +72,32 @@ function Property() {
         <>
           <Hero heroImage='/searchHero.webp' heroHeadline='Property Details' />
           <div className={styles.searchTextBlock}>
-            <h2>{data.title}</h2>
+            <h2 className={`headline2 ${styles.headline}`}>{data.title}</h2>
             <img
               className={styles.listingImage}
               src={`/${data.picture}`}
               alt=''
             />
             <p>{data.description}</p>
-            <p className={styles.bedsBaths}>
-              <span>Beds: {data.beds}</span>
-              <span role='presentation'>&#8226;</span>
-              <span>Baths: {data.baths}</span>
-            </p>
-            <p className={styles.price}>
-              {formatter.format(Number(data.price))}
-            </p>
+            <div className={styles.detailRow}>
+              <PropertyDetail
+                icon={Bed}
+                detailType='Beds'
+                detailValue={data.beds}
+              />
+              <PropertyDetail
+                icon={Bath}
+                detailType='Baths'
+                detailValue={data.baths}
+              />
+              <PropertyDetail
+                icon={Foot}
+                detailType='Sq. Ft.'
+                detailValue={formatter.number(data.sqFt)}
+              />
+              <PropertyDetail detailType='MLS #' detailValue={data.mlsNo} />
+            </div>
+            <p className={styles.price}>{formatter.price(data.price)}</p>
           </div>
         </>
       ) : null}

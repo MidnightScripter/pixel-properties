@@ -52,7 +52,7 @@ function ListingGrid() {
                     />
                     <div className={styles.listingText}>
                       <p>{data.address}</p>
-                      <p>{formatter.format(Number(data.price))}</p>
+                      <p>{formatter.price(data.price)}</p>
                       <p>
                         Beds: {data.beds} &#8226; Baths: {data.baths}
                       </p>
