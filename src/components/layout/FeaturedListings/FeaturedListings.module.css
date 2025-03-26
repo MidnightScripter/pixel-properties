@@ -37,6 +37,7 @@
   border-radius: var(--listing-featured-border-radius);
   width: var(--listing-featured-size-width);
   position: relative;
+  overflow: hidden;
 }
 .listingImage {
   border-radius: var(--listing-featured-border-radius);

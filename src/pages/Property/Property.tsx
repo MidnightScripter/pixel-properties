@@ -9,6 +9,7 @@ import { formatter } from '../../util/formatter';
 import Hero from '../../components/layout/Hero/Hero';
 import ErrorUI from '../ErrorUI/ErrorUI';
 import PropertyDetailBlock from '../../components/PropertyDetail/PropertyDetailBlock';
+import PropertyImage from '../../components/PropertyImage/PropertyImage';
 
 function Property() {
   const { propertyId } = useParams();
@@ -70,11 +71,9 @@ function Property() {
           <Hero heroImage='/searchHero.webp' heroHeadline='Property Details' />
           <div className={styles.searchTextBlock}>
             <h2 className={`headline2 ${styles.headline}`}>{data.title}</h2>
-            <img
-              className={styles.listingImage}
-              src={`/${data.picture}`}
-              alt=''
-            />
+            <span className={styles.imageContainer}>
+              <PropertyImage imageUrl={data.picture} />
+            </span>
             <h3>
               Details for {data.address} {data.city}, {data.state}
             </h3>

@@ -1,30 +1,23 @@
 import { FeaturedListingType } from './FeaturedListings';
 import styles from './FeaturedListings.module.css';
 import { formatter } from '../../../util/formatter';
-import SaveListing from '../../SaveListing/SaveListing';
 import { Link } from 'react-router';
+import PropertyImage from '../../PropertyImage/PropertyImage';
 
 export interface FeaturedListingProps {
   imageOnRight?: boolean;
   listingData: FeaturedListingType;
 }
 function FeaturedListing({ imageOnRight, listingData }: FeaturedListingProps) {
-  function handleSave(propId: string) {
-    console.log(propId);
-  }
+  // function handleSave(propId: string) {
+  //   console.log(propId);
+  // }
   return (
     <div
       className={`${imageOnRight ? styles.imageOnRight : ''} ${styles.listing}`}
     >
       <div className={styles.imageBlock}>
-        <img
-          className={styles.listingImage}
-          src={`/${listingData.picture}`}
-          alt=''
-        />
-        <span className={styles.saveListing}>
-          <SaveListing onClick={() => handleSave(listingData.id)} />
-        </span>
+        <PropertyImage imageUrl={listingData.picture} />
       </div>
       <div className={styles.descriptionBlock}>
         <h3 className={styles.title}>{listingData.title}</h3>

@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.image {
+  object-fit: cover;
+  object-position: bottom;
+  width: 100%;
+  height: 100%;
+}
+.saveListing {
+  position: absolute;
+  color: white;
+  inset: 1rem 1rem auto auto;
+  width: 4rem;
+  filter: drop-shadow(0 0 1rem #000000);
+  z-index: 10;
+}

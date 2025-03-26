@@ -12,7 +12,7 @@ export interface PropertyDetailBlockType {
 
 function PropertyDetailBlock({ propertyData }: PropertyDetailBlockType) {
   return (
-    <div className='detailBlock'>
+    <div className={styles.detailBlock}>
       {propertyCategories.map((category) => {
         // Filter the keys to see if the propertyData has at least one valid value for the category
         const validKeys = category.keys.filter(

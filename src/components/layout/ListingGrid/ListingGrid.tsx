@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { formatter } from '../../../util/formatter';
 import styles from './ListingGrid.module.css';
 import { Link } from 'react-router';
+import PropertyImage from '../../PropertyImage/PropertyImage';
 
 export interface ListingGridType {
   id: string;
@@ -45,10 +46,9 @@ function ListingGrid() {
                     to={{ pathname: `/property/${data.id}` }}
                     title={`View Details on ${data.title}`}
                   >
-                    <img
-                      src={`/${data.picture}`}
-                      className={styles.listingImage}
-                      alt={`${data.title}: ${data.beds} Beds 2 ${data.baths}`}
+                    <PropertyImage
+                      imageUrl={data.picture}
+                      description={`${data.title}: ${data.beds} Beds ${data.baths} Baths`}
                     />
                     <div className={styles.listingText}>
                       <p>{data.address}</p>

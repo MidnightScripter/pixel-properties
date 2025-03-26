@@ -13,13 +13,14 @@ function PropertyDetail({
   detailValue,
 }: PropertyDetailType) {
   return (
-    <p className={styles.container}>
+    <p className={styles.detailContainer}>
       {Icon && (
         <span className={styles.icon} role='presentation'>
           <Icon />
         </span>
       )}
-      <span className={styles.detailType}>{detailType}</span> {detailValue}
+      <span className={styles.detailType}>{detailType}</span>{' '}
+      <span className={styles.detailValue}>{detailValue}</span>
     </p>
   );
 }

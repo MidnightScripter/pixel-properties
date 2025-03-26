@@ -8,13 +8,25 @@ export interface SaveListingType
   isSaved?: boolean;
 }
 
-function SaveListing({ isSaved = false, ...props }: SaveListingType) {
+function SaveListing({
+  isSaved = false,
+  className,
+  ...props
+}: SaveListingType) {
   return (
     <button
-      className={`${isSaved ? styles.saved : undefined} ${styles.saveListing} `}
+      className={`${isSaved ? styles.saved : ''} ${styles.saveListing} ${
+        className || ''
+      }`}
       type={props.type}
       aria-label={isSaved ? 'Remove from Saved listings' : 'Save Listing'}
       {...props}
+      onClick={(e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log('button pressed');
+        // props.onClick?.(e);
+      }}
     >
       {isSaved ? <BookmarkSaved /> : <Bookmark />}
     </button>
