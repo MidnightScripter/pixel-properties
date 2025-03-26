@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { formatter } from '../../../util/utils';
+import { formatter } from '../../../util/formatter';
 import styles from './ListingGrid.module.css';
 import { Link } from 'react-router';
 

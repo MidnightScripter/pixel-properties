@@ -1,6 +1,6 @@
 import { FeaturedListingType } from './FeaturedListings';
 import styles from './FeaturedListings.module.css';
-import { formatter } from '../../../util/utils';
+import { formatter } from '../../../util/formatter';
 import SaveListing from '../../SaveListing/SaveListing';
 import { Link } from 'react-router';
 

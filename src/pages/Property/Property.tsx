@@ -4,14 +4,11 @@ import { Link } from 'react-router';
 import FeaturedListings, {
   FeaturedListingType,
 } from '../../components/layout/FeaturedListings/FeaturedListings';
-import PropertyDetail from '../../components/PropertyDetail/PropertyDetail';
 import styles from './Property.module.css';
-import { formatter } from '../../util/utils';
+import { formatter } from '../../util/formatter';
 import Hero from '../../components/layout/Hero/Hero';
 import ErrorUI from '../ErrorUI/ErrorUI';
-import Bed from '../../assets/bed-icon.svg?react';
-import Bath from '../../assets/shower-icon.svg?react';
-import Foot from '../../assets/sq-ft-icon.svg?react';
+import PropertyDetailBlock from '../../components/PropertyDetail/PropertyDetailBlock';
 
 function Property() {
   const { propertyId } = useParams();
@@ -78,26 +75,12 @@ function Property() {
               src={`/${data.picture}`}
               alt=''
             />
+            <h3>
+              Details for {data.address} {data.city}, {data.state}
+            </h3>
             <p>{data.description}</p>
-            <div className={styles.detailRow}>
-              <PropertyDetail
-                icon={Bed}
-                detailType='Beds'
-                detailValue={data.beds}
-              />
-              <PropertyDetail
-                icon={Bath}
-                detailType='Baths'
-                detailValue={data.baths}
-              />
-              <PropertyDetail
-                icon={Foot}
-                detailType='Sq. Ft.'
-                detailValue={formatter.number(data.sqFt)}
-              />
-              <PropertyDetail detailType='MLS #' detailValue={data.mlsNo} />
-            </div>
-            <p className={styles.price}>{formatter.price(data.price)}</p>
+            <h4 className={styles.price}>{formatter.price(data.price)}</h4>
+            <PropertyDetailBlock propertyData={data} />
           </div>
         </>
       ) : null}

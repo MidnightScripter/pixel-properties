@@ -8,3 +8,9 @@
 .detailType {
   font-weight: 700;
 }
+.categoryHeadline {
+  display: flex;
+  gap: 0.5rem;
+}
+.categoryIcon {
+}

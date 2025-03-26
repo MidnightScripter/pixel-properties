@@ -1,8 +1,6 @@
 import styles from './MosaicCTA.module.css';
 import MosaicCTABlock from './MosaicCTABlock';
-import House from '../../../assets/house-icon.svg?react';
-import Bookmark from '../../../assets/bookmark-icon.svg?react';
-import Contact from '../../../assets/contact-icon.svg?react';
+import { House, Bookmark, Contact } from '../../../assets/icons';
 
 function MosaicCTA() {
   return (

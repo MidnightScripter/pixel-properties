@@ -1,6 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
-import Bookmark from '../../assets/bookmark-icon.svg?react';
-import BookmarkUnsaved from '../../assets/bookmark-unsaved-icon.svg?react';
+import { Bookmark, BookmarkSaved } from '../../assets/icons';
 
 import styles from './SaveListing.module.css';
 
@@ -17,7 +16,7 @@ function SaveListing({ isSaved = false, ...props }: SaveListingType) {
       aria-label={isSaved ? 'Remove from Saved listings' : 'Save Listing'}
       {...props}
     >
-      {isSaved ? <Bookmark /> : <BookmarkUnsaved />}
+      {isSaved ? <BookmarkSaved /> : <Bookmark />}
     </button>
   );
 }

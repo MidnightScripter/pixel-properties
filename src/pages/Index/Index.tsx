@@ -5,8 +5,7 @@ import FeaturedListings from '../../components/layout/FeaturedListings/FeaturedL
 import Hero from '../../components/layout/Hero/Hero';
 import MosaicCTA from '../../components/layout/MosaicCTA/MosaicCTA';
 import styles from './Index.module.css';
-import SearchIcon from '../../assets/search-icon.svg?react';
-import LocationIcon from '../../assets/location-icon.svg?react';
+import { Search, Location } from '../../assets/icons';
 
 function Index() {
   let currentZipcode = '';
@@ -73,17 +72,13 @@ function Index() {
                   inputName='cityZip'
                 />
                 <span className={styles.buttonContainer}>
-                  <Button
-                    icon={SearchIcon}
-                    buttonIconOnly
-                    label='Submit Search'
-                  />
+                  <Button icon={Search} buttonIconOnly label='Submit Search' />
                 </span>
               </div>
             </form>
             <Button
               label='Search Near Me'
-              icon={LocationIcon}
+              icon={Location}
               onClick={handleSearchNearby}
             />
           </>

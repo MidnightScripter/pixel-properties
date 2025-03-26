@@ -9,6 +9,7 @@ export interface FeaturedListingType {
   picture: string;
   address: string;
   city: string;
+  state: string;
   county: string;
   price: string;
   beds: string;

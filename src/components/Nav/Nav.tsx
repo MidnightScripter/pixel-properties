@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import classNames from 'classnames';
 import styles from './Nav.module.css';
+import { Close, Bookmark } from '../../assets/icons';
 import Menu from '../../assets/menu.svg?react';
-import Close from '../../assets/close.svg?react';
-import Bookmark from '../../assets/bookmark-icon.svg?react';
 import Logo from '../../assets/logo.svg?react';
 import { Link } from 'react-router';
 
