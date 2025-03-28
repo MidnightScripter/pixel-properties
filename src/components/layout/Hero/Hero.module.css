@@ -4,9 +4,9 @@ Hero
 .heroContainer {
   width: 100vw;
   width: 100dvw;
-  min-height: 25rem;
-  height: 40vh;
-  height: 40dvh;
+  min-height: 20rem;
+  height: 20vh;
+  height: 20dvh;
   position: relative;
 }
 .fullHeight {

@@ -72,13 +72,15 @@ function Property() {
           <div className={styles.searchTextBlock}>
             <h2 className={`headline2 ${styles.headline}`}>{data.title}</h2>
             <span className={styles.imageContainer}>
-              <PropertyImage imageUrl={data.picture} />
+              <PropertyImage imageUrl={data.picture} className={styles.image} />
             </span>
-            <h3>
-              Details for {data.address} {data.city}, {data.state}
-            </h3>
-            <p>{data.description}</p>
-            <h4 className={styles.price}>{formatter.price(data.price)}</h4>
+            <div className={styles.propertyDescription}>
+              <h3>
+                Details for {data.address} {data.city}, {data.state}
+              </h3>
+              <p>{data.description}</p>
+              <h4 className={styles.price}>{formatter.price(data.price)}</h4>
+            </div>
             <PropertyDetailBlock propertyData={data} />
           </div>
         </>

@@ -40,7 +40,7 @@ Navigation
     rgba(0, 0, 0, 0.7) 30%,
     rgba(0, 0, 0, 0) 100%
   );
-  z-index: 3;
+  z-index: 11;
 }
 .mainNavLinks {
   display: flex;
@@ -64,12 +64,12 @@ Navigation
   color: white;
   min-width: 4rem;
   position: relative;
-  z-index: 11;
+  z-index: 12;
 }
 .logo {
   width: clamp(10rem, 15vw, 15rem);
   position: relative;
-  z-index: 11;
+  z-index: 12;
 }
 .savedListings {
   color: white;

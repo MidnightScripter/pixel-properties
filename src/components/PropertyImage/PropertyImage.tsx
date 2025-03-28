@@ -4,14 +4,16 @@ import styles from './PropertyImage.module.css';
 export interface PropertyImageType {
   imageUrl?: string;
   description?: string;
+  className?: string;
 }
 
 function PropertyImage({
   imageUrl = 'underconstruction.webp',
   description,
+  className,
 }: PropertyImageType) {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className || ''}`}>
       <img
         className={styles.image}
         src={`/${imageUrl}`}

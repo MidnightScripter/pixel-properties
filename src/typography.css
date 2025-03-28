@@ -16,7 +16,7 @@ body {
 }
 .headline1 {
   font-family: var(--font-headline-family-default);
-  font-size: 4rem;
+  font-size: 3rem;
   text-transform: uppercase;
   line-height: 1;
 }
@@ -39,4 +39,10 @@ body {
 .display1 {
   font-size: 4rem;
   line-height: 1;
+}
+
+@media (min-width: 768px;) {
+  .headline1 {
+    font-size: 4rem;
+  }
 }
