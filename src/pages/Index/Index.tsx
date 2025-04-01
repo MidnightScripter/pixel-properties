@@ -57,7 +57,7 @@ function Index() {
         heroImage='/hero.jpg'
         heroHeadline={
           <>
-            <p className={`headline1 ${styles.headline}`}>
+            <p className={`display1 ${styles.headline}`}>
               Your Perfect <span className='bold'>Home</span>
             </p>
             <h1 className='headline3'>

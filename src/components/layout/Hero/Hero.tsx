@@ -20,7 +20,7 @@ function Hero({ fullHeight, heroImage, heroHeadline }: HeroProps) {
           {fullHeight ? (
             heroHeadline
           ) : (
-            <h1 className='display1'>{heroHeadline}</h1>
+            <h1 className='headline1'>{heroHeadline}</h1>
           )}
         </div>
       </div>

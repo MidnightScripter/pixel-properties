@@ -1,27 +1,29 @@
 :root {
-  --font-headline-family-default: 'Quicksand', sans-serif;
-  --font-headline-weight-default: 400;
-  --font-body-family-default: 'Josefin Sans', sans-serif;
-  --font-body-weight-default: 400;
+  --font-display-family: 'Quicksand', sans-serif;
+  --font-display-weight: 400;
+  --font-headline-family: 'Josefin Sans', sans-serif;
+  --font-headline-weight: 400;
+  --font-body-family: 'Josefin Sans', sans-serif;
+  --font-body-weight: 400;
 }
 
 /* ----- Default typography ----- */
 body {
-  font-family: var(--font-body-family-default);
-  font-weight: var(--font-body-weight-default);
+  font-family: var(--font-body-family);
+  font-weight: var(--font-body-weight);
 }
 
 .bold {
   font-weight: 700;
 }
 .headline1 {
-  font-family: var(--font-headline-family-default);
+  font-family: var(--font-headline-family);
   font-size: 3rem;
   text-transform: uppercase;
   line-height: 1;
 }
 .headline2 {
-  font-family: var(--font-headline-family-default);
+  font-family: var(--font-headline-family);
   font-size: 3rem;
   line-height: 1;
   font-weight: 700;
@@ -37,6 +39,8 @@ body {
   font-weight: 500;
 }
 .display1 {
+  font-family: var(--font-display-family);
+  font-weight: var(--font-display-weight);
   font-size: 4rem;
   line-height: 1;
 }
