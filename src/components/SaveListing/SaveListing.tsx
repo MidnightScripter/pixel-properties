@@ -2,20 +2,25 @@ import { ButtonHTMLAttributes } from 'react';
 import { Bookmark, BookmarkSaved } from '../../assets/icons';
 
 import styles from './SaveListing.module.css';
+import { useFavorites } from '../../context/FavoritesContext';
 
 export interface SaveListingType
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   isSaved?: boolean;
+  propId?: number;
 }
 
 function SaveListing({
   isSaved = false,
   className,
+  propId,
   ...props
 }: SaveListingType) {
+  const { toggleFavorite, isFavorite } = useFavorites();
+  const favorited = propId ? isFavorite(propId) : null;
   return (
     <button
-      className={`${isSaved ? styles.saved : ''} ${styles.saveListing} ${
+      className={`${favorited ? styles.saved : ''} ${styles.saveListing} ${
         className || ''
       }`}
       type={props.type}
@@ -24,11 +29,12 @@ function SaveListing({
       onClick={(e) => {
         e.stopPropagation();
         e.preventDefault();
-        console.log('button pressed');
-        // props.onClick?.(e);
+        if (propId) {
+          toggleFavorite(propId);
+        }
       }}
     >
-      {isSaved ? <BookmarkSaved /> : <Bookmark />}
+      {favorited ? <BookmarkSaved /> : <Bookmark />}
     </button>
   );
 }

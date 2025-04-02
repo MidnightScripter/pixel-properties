@@ -72,7 +72,11 @@ function Property() {
           <div className={styles.searchTextBlock}>
             <h2 className={`headline2 ${styles.headline}`}>{data.title}</h2>
             <span className={styles.imageContainer}>
-              <PropertyImage imageUrl={data.picture} className={styles.image} />
+              <PropertyImage
+                propId={data.id}
+                imageUrl={data.picture}
+                className={styles.image}
+              />
             </span>
             <div className={styles.propertyDescription}>
               <h3>

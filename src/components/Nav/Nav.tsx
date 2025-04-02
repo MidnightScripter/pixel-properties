@@ -5,6 +5,7 @@ import { Close, Bookmark } from '../../assets/icons';
 import Menu from '../../assets/menu.svg?react';
 import Logo from '../../assets/logo.svg?react';
 import { Link } from 'react-router';
+import { useFavorites } from '../../context/FavoritesContext';
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ function Nav() {
   const menuClasses = classNames(styles.nav, styles.mainNavLinks, {
     [styles.active]: menuOpen,
   });
-
+  const { favorites } = useFavorites();
   return (
     <nav id='main-nav' className={styles.mainNav}>
       <Link
@@ -28,8 +29,11 @@ function Nav() {
       </Link>
       <button aria-label='Saved Listings' className={styles.savedListings}>
         <Bookmark />
-        <span className={styles.listingsCount} aria-label={`0 Listings Saved`}>
-          0
+        <span
+          className={styles.listingsCount}
+          aria-label={`${favorites.length} Listings Saved`}
+        >
+          {favorites.length}
         </span>
       </button>
       {!menuOpen ? (
@@ -51,16 +55,24 @@ function Nav() {
       )}
       <menu className={menuClasses}>
         <li className={styles.link}>
-          <Link to={{ pathname: '/search' }}>Find a Home</Link>
+          <Link to={{ pathname: '/search' }} onClick={handleClick}>
+            Find a Home
+          </Link>
         </li>
         <li className={styles.link}>
-          <Link to={{ pathname: '/search' }}>Agents</Link>
+          <Link to={{ pathname: '/search' }} onClick={handleClick}>
+            Agents
+          </Link>
         </li>
         <li className={styles.link}>
-          <Link to={{ pathname: '/search' }}>About Us</Link>
+          <Link to={{ pathname: '/search' }} onClick={handleClick}>
+            About Us
+          </Link>
         </li>
         <li className={styles.link}>
-          <Link to={{ pathname: '/contact' }}>Contact</Link>
+          <Link to={{ pathname: '/contact' }} onClick={handleClick}>
+            Contact
+          </Link>
         </li>
       </menu>
     </nav>

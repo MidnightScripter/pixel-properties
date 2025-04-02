@@ -3,7 +3,7 @@ import styles from './FeaturedListings.module.css';
 import FeaturedListing from './FeaturedListing';
 
 export interface FeaturedListingType {
-  id: string;
+  id: number;
   mlsNo: string;
   sqFt: string;
   picture: string;

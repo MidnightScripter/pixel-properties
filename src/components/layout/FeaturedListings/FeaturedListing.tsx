@@ -9,15 +9,12 @@ export interface FeaturedListingProps {
   listingData: FeaturedListingType;
 }
 function FeaturedListing({ imageOnRight, listingData }: FeaturedListingProps) {
-  // function handleSave(propId: string) {
-  //   console.log(propId);
-  // }
   return (
     <div
       className={`${imageOnRight ? styles.imageOnRight : ''} ${styles.listing}`}
     >
       <div className={styles.imageBlock}>
-        <PropertyImage imageUrl={listingData.picture} />
+        <PropertyImage imageUrl={listingData.picture} propId={listingData.id} />
       </div>
       <div className={styles.descriptionBlock}>
         <h3 className={styles.title}>{listingData.title}</h3>

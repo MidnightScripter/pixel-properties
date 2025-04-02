@@ -1,7 +1,7 @@
 import { http, HttpResponse, delay } from 'msw';
 
 //   {
-//     id: '1',
+//     id: 1,
 //     picture: 'house1.jpg',
 //     address: '1234 Main Street Onett, Eagleland',
 //     price: '340000',
@@ -12,7 +12,7 @@ import { http, HttpResponse, delay } from 'msw';
 //       'A cozy 4-bedroom, 2-bathroom family home located in the heart of Onett. Features spacious living areas and a welcoming atmosphere, perfect for families.',
 //   },
 //   {
-//     id: '2',
+//     id: 2,
 //     picture: 'house2.jpg',
 //     address: '555 Buzz Buzz Ave Onett, Eagleland',
 //     price: '450000',
@@ -23,7 +23,7 @@ import { http, HttpResponse, delay } from 'msw';
 //       "This charming 3-bedroom, 3-bathroom home at 555 Buzz Buzz Ave offers cozy living in the heart of Onett, Eagleland. It's the perfect space for those seeking comfort and convenience in a peaceful neighborhood.",
 //   },
 //   {
-//     id: '3',
+//     id: 3,
 //     picture: 'house3.jpg',
 //     address: '666 Gygas Court Onett, Eagleland',
 //     price: '666000',
@@ -34,7 +34,7 @@ import { http, HttpResponse, delay } from 'msw';
 //       '6-bedroom, 1-bathroom home is a unique opportunity in Onett, Eagleland. It offers plenty of space and potential for creative renovations to make it truly your own.',
 //   },
 //   {
-//     id: '4',
+//     id: 4,
 //     picture: 'house4.jpg',
 //     address: '426a HAL Lab Ln Onett, Eagleland',
 //     price: '550000',
@@ -46,7 +46,7 @@ import { http, HttpResponse, delay } from 'msw';
 //     featured: true,
 //   },
 //   {
-//     id: '5',
+//     id: 5,
 //     picture: 'house5.jpg',
 //     address: '42 Saturn Circle Onett, Eagleland',
 //     price: '777000',
@@ -57,7 +57,7 @@ import { http, HttpResponse, delay } from 'msw';
 //       'Discover this stunning 3-bedroom, 3-bathroom home at 42 Saturn Circle in Onett, Eagleland. It offers sophisticated living with a spacious and inviting design.',
 //   },
 //   {
-//     id: '6',
+//     id: 6,
 //     picture: 'house6.jpg',
 //     address: '10 Paula Place Onett, Eagleland',
 //     price: '653000',
@@ -68,7 +68,7 @@ import { http, HttpResponse, delay } from 'msw';
 //       'This beautiful 5-bedroom, 4-bathroom home at 10 Paula Place is perfect for large families or entertaining. It blends comfort and functionality in a serene setting.',
 //   },
 //   {
-//     id: '7',
+//     id: 7,
 //     picture: 'house5.jpg',
 //     address: '50 Jeff Jct Onett, Eagleland',
 //     price: '252000',
@@ -80,7 +80,7 @@ import { http, HttpResponse, delay } from 'msw';
 //     featured: true,
 //   },
 //   {
-//     id: '8',
+//     id: 8,
 //     picture: 'house8.jpg',
 //     address: '4040 Tessie Ter Onett, Eagleland',
 //     price: '333000',
@@ -91,7 +91,7 @@ import { http, HttpResponse, delay } from 'msw';
 //       'This lovely 3-bedroom, 3-bathroom home at 4040 Tessie Ter provides both charm and convenience in Onett, Eagleland. It’s the perfect balance of value and style for your next home.',
 //   },
 //   {
-//     id: '9',
+//     id: 9,
 //     picture: 'house9.jpg',
 //     address: '2 Pokey Place Onett, Eagleland',
 //     price: '802000',
@@ -105,7 +105,7 @@ import { http, HttpResponse, delay } from 'msw';
 // ];
 const mockData = [
   {
-    id: '1',
+    id: 1,
     mlsNo: 'X12345',
     sqFt: '1930',
     picture: 'house1.jpg',
@@ -135,7 +135,7 @@ const mockData = [
     schoolDistrict: 'Onett School District',
   },
   {
-    id: '2',
+    id: 2,
     mlsNo: 'X12345',
     sqFt: '2410',
     picture: 'house2.jpg',
@@ -165,7 +165,7 @@ const mockData = [
     schoolDistrict: 'Buzz Buzz Unified School District',
   },
   {
-    id: '3',
+    id: 3,
     mlsNo: 'X12345',
     sqFt: '2900',
     picture: 'house3.jpg',
@@ -193,7 +193,7 @@ const mockData = [
     schoolDistrict: 'Onett School District',
   },
   {
-    id: '4',
+    id: 4,
     mlsNo: 'X12345',
     sqFt: '2530',
     picture: 'house4.jpg',
@@ -224,7 +224,7 @@ const mockData = [
     featured: true,
   },
   {
-    id: '5',
+    id: 5,
     mlsNo: 'X12345',
     sqFt: '1750',
     picture: 'house5.jpg',
@@ -254,7 +254,7 @@ const mockData = [
     schoolDistrict: 'Saturn Unified School District',
   },
   {
-    id: '6',
+    id: 6,
     mlsNo: 'X12345',
     sqFt: '2255',
     picture: 'house6.jpg',
@@ -284,7 +284,7 @@ const mockData = [
     schoolDistrict: 'Paula Unified School District',
   },
   {
-    id: '7',
+    id: 7,
     mlsNo: 'X12345',
     sqFt: '1233',
     picture: 'house7.jpg',
@@ -313,7 +313,7 @@ const mockData = [
     featured: true,
   },
   {
-    id: '8',
+    id: 8,
     mlsNo: 'X12345',
     sqFt: '1610',
     picture: 'house8.jpg',
@@ -343,7 +343,7 @@ const mockData = [
     schoolDistrict: 'Tessie Unified School District',
   },
   {
-    id: '9',
+    id: 9,
     mlsNo: 'X12345',
     sqFt: '3366',
     picture: 'house9.jpg',
@@ -387,7 +387,7 @@ export const handlers = [
   }),
   http.get('/api/data/:propertyId', async ({ params }) => {
     const { propertyId } = params;
-    const property = mockData.find((item) => item.id === propertyId);
+    const property = mockData.find((item) => item.id.toString() === propertyId);
     if (property) {
       await delay();
       return HttpResponse.json(property); // Return the matching property

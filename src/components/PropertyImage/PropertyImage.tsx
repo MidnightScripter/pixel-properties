@@ -5,12 +5,14 @@ export interface PropertyImageType {
   imageUrl?: string;
   description?: string;
   className?: string;
+  propId?: number;
 }
 
 function PropertyImage({
   imageUrl = 'underconstruction.webp',
   description,
   className,
+  propId,
 }: PropertyImageType) {
   return (
     <div className={`${styles.container} ${className || ''}`}>
@@ -19,7 +21,7 @@ function PropertyImage({
         src={`/${imageUrl}`}
         alt={description || ''}
       />
-      <SaveListing className={styles.saveListing} />
+      <SaveListing propId={propId} className={styles.saveListing} />
     </div>
   );
 }

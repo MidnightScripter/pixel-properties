@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import PropertyImage from '../../PropertyImage/PropertyImage';
 
 export interface ListingGridType {
-  id: string;
+  id: number;
   picture: string;
   address: string;
   price: string;
@@ -47,6 +47,7 @@ function ListingGrid() {
                     title={`View Details on ${data.title}`}
                   >
                     <PropertyImage
+                      propId={data.id}
                       imageUrl={data.picture}
                       description={`${data.title}: ${data.beds} Beds ${data.baths} Baths`}
                     />
