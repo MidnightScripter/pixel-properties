@@ -60,7 +60,7 @@ function Nav() {
           <Link to={{ pathname: '/search' }}>About Us</Link>
         </li>
         <li className={styles.link}>
-          <Link to={{ pathname: '/search' }}>Contact</Link>
+          <Link to={{ pathname: '/contact' }}>Contact</Link>
         </li>
       </menu>
     </nav>

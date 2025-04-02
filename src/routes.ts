@@ -3,6 +3,7 @@ import Search from './pages/Search/Search';
 import Index from './pages/Index/Index';
 import Property from './pages/Property/Property';
 import ErrorUI from './pages/ErrorUI/ErrorUI';
+import Contact from './pages/Contact/Contact';
 
 interface RouteConfig {
   path: string;
@@ -23,14 +24,13 @@ const routes: RouteConfig[] = [
     element: Property,
   },
   {
+    path: '/contact',
+    element: Contact,
+  },
+  {
     path: '*',
     element: ErrorUI,
   },
-  // {
-  //   path: '/contact',
-  //   element: Contact,
-  // },
-  // Add more routes here
 ];
 
 export default routes;

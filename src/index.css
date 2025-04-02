@@ -160,3 +160,12 @@ body {
 .link {
   border-bottom: 1px dashed var(--color-blue-blue1);
 }
+.externalLink {
+  border-bottom: 1px dashed var(--color-blue-blue1);
+  position: relative;
+}
+.icon {
+  height: 1.5rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+}

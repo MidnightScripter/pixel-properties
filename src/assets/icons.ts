@@ -13,6 +13,7 @@ import HOA from './hoa-icon.svg?react';
 import House from './house-icon.svg?react';
 import HouseType from './housetype-icon.svg?react';
 import Location from './location-icon.svg?react';
+import OpenNew from './open-new-icon.svg?react';
 import Payments from './payments-icon.svg?react';
 import Realtor from './realtor-icon.svg?react';
 import School from './school-icon.svg?react';
@@ -36,6 +37,7 @@ export {
   House,
   HouseType,
   Location,
+  OpenNew,
   Payments,
   Realtor,
   School,
