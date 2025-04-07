@@ -138,6 +138,10 @@ ol {
   padding: 0;
   margin: 0;
 }
+dialog {
+  margin: 0;
+  border: none;
+}
 *:focus {
   outline: none;
 }

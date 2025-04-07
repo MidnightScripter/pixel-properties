@@ -34,7 +34,6 @@ function Nav() {
           aria-label='Saved Listings'
           className={styles.savedListings}
           onClick={() => {
-            console.log('hit');
             if (favorites.length > 0) {
               setModalOpen(true);
             }
@@ -89,11 +88,9 @@ function Nav() {
           </li>
         </menu>
       </nav>
-      {/* {modalState.isOpen && ( */}
       <Sidesheet isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <p>HIYA</p>
       </Sidesheet>
-      {/* )} */}
     </>
   );
 }

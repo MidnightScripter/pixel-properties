@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Sidesheet.module.css';
 
@@ -14,14 +14,27 @@ function Sidesheet({
   title,
   className,
   children,
-  isOpen = false,
+  isOpen,
   onClose,
 }: SidesheetType) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [shouldRender, setShouldRender] = useState(isOpen);
+
+  const handleAnimationEnd = () => {
+    if (!isOpen) {
+      setShouldRender(false); // Remove dialog from DOM after exit animation
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     const dialog = dialogRef.current;
-
-    if (isOpen && dialog) {
+    if (dialog && isOpen) {
       dialog.showModal(); // Open the dialog
       dialog.focus();
 
@@ -41,10 +54,17 @@ function Sidesheet({
 
   return createPortal(
     <>
-      {isOpen && (
+      {shouldRender && (
         <dialog
           className={`${styles.container} ${className || ''}`}
           ref={dialogRef}
+          onAnimationEnd={handleAnimationEnd}
+          onClick={(e) => {
+            // Close if clicking on the backdrop
+            if (e.target === dialogRef.current) {
+              onClose();
+            }
+          }}
         >
           <header className={styles.header}>
             {title && <h1>{title}</h1>}
