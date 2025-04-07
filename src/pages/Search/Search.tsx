@@ -11,11 +11,7 @@ function Search() {
     <>
       <Hero heroImage='/searchHero.webp' heroHeadline='Search Properties' />
       <div className={styles.searchTextBlock}>
-        <p>Your zipcode from location search is {zipcode}</p>
-        <p>
-          Since this is a demo, the zip has been changed to filter the demo
-          results
-        </p>
+        {zipcode && <p>Your zipcode from location search is {zipcode}</p>}
       </div>
       <ListingGrid />
     </>
