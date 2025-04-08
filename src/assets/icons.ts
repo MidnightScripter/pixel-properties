@@ -1,47 +1,22 @@
-import AC from './ac-icon.svg?react';
-import Bed from './bed-icon.svg?react';
-import Bookmark from './bookmark-unsaved-icon.svg?react';
-import BookmarkSaved from './bookmark-icon.svg?react';
-import Category from './category-icon.svg?react';
-import CheckCircle from './check-circle-icon.svg?react';
-import Close from './close.svg?react';
-import Contact from './contact-icon.svg?react';
-import EHO from './equal-housing-opportunity-icon.svg?react';
-import Garage from './garage-icon.svg?react';
-import Heating from './heating-icon.svg?react';
-import HOA from './hoa-icon.svg?react';
-import House from './house-icon.svg?react';
-import HouseType from './housetype-icon.svg?react';
-import Location from './location-icon.svg?react';
-import OpenNew from './open-new-icon.svg?react';
-import Payments from './payments-icon.svg?react';
-import Realtor from './realtor-icon.svg?react';
-import School from './school-icon.svg?react';
-import Search from './search-icon.svg?react';
-import Shower from './shower-icon.svg?react';
-import SqFt from './sq-ft-icon.svg?react';
-
-export {
-  AC,
-  Bed,
-  Bookmark,
-  BookmarkSaved,
-  Category,
-  CheckCircle,
-  Close,
-  Contact,
-  EHO,
-  Garage,
-  Heating,
-  HOA,
-  House,
-  HouseType,
-  Location,
-  OpenNew,
-  Payments,
-  Realtor,
-  School,
-  Search,
-  Shower,
-  SqFt,
-};
+export { default as AC } from './ac-icon.svg?react';
+export { default as Bed } from './bed-icon.svg?react';
+export { default as Bookmark } from './bookmark-unsaved-icon.svg?react';
+export { default as BookmarkSaved } from './bookmark-icon.svg?react';
+export { default as Category } from './category-icon.svg?react';
+export { default as CheckCircle } from './check-circle-icon.svg?react';
+export { default as Close } from './close.svg?react';
+export { default as Contact } from './contact-icon.svg?react';
+export { default as EHO } from './equal-housing-opportunity-icon.svg?react';
+export { default as Garage } from './garage-icon.svg?react';
+export { default as Heating } from './heating-icon.svg?react';
+export { default as HOA } from './hoa-icon.svg?react';
+export { default as House } from './house-icon.svg?react';
+export { default as HouseType } from './housetype-icon.svg?react';
+export { default as Location } from './location-icon.svg?react';
+export { default as OpenNew } from './open-new-icon.svg?react';
+export { default as Payments } from './payments-icon.svg?react';
+export { default as Realtor } from './realtor-icon.svg?react';
+export { default as School } from './school-icon.svg?react';
+export { default as Search } from './search-icon.svg?react';
+export { default as Shower } from './shower-icon.svg?react';
+export { default as SqFt } from './sq-ft-icon.svg?react';

@@ -6,7 +6,7 @@ function Footer() {
       <div className={styles.addressBlock}>
         <img
           className={styles.logo}
-          src='/logo.png'
+          src='/logo.svg'
           alt='Go To Pixel Properties Homepage'
         />
         <address>

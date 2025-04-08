@@ -15,7 +15,7 @@ function Hero({ fullHeight, heroImage, heroHeadline }: HeroProps) {
           styles.heroContainer
         }`}
       >
-        <img className={styles.backgroundImage} src={heroImage} />
+        <img className={styles.backgroundImage} src={heroImage} alt='' />
         <div className={styles.heroContent}>
           {fullHeight ? (
             heroHeadline
