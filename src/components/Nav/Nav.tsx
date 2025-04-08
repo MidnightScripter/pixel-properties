@@ -6,7 +6,7 @@ import Menu from '../../assets/menu.svg?react';
 import Logo from '../../assets/logo.svg?react';
 import { Link } from 'react-router';
 import { useFavorites } from '../../context/FavoritesContext';
-import Sidesheet from '../Sidesheet/Sidesheet';
+import FavoritesSheet from '../FavoritesSheet/FavoritesSheet';
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -88,9 +88,7 @@ function Nav() {
           </li>
         </menu>
       </nav>
-      <Sidesheet isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-        <p>HIYA</p>
-      </Sidesheet>
+      <FavoritesSheet isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

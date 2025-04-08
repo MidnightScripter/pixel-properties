@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './FeaturedListings.module.css';
 import FeaturedListing from './FeaturedListing';
+import { ApiService } from '../../../api/propertiesAPI';
 
 export interface FeaturedListingType {
   id: number;
@@ -39,18 +40,15 @@ function FeaturedListings() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/data/featured');
-        if (!response.ok) {
-          throw new Error('Bad Response');
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error(error as Error);
+        const response = await ApiService.getFeaturedProperties();
+        setData(response);
+      } catch (err) {
+        console.error(err as Error);
       }
     };
     fetchData();
   }, []);
+
   return (
     <section className={styles.listingContainer}>
       <h2 className={`headline2 ${styles.headline}`}>Featured Properties</h2>

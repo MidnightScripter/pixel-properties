@@ -10,6 +10,7 @@ import Hero from '../../components/layout/Hero/Hero';
 import ErrorUI from '../ErrorUI/ErrorUI';
 import PropertyDetailBlock from '../../components/PropertyDetail/PropertyDetailBlock';
 import PropertyImage from '../../components/PropertyImage/PropertyImage';
+import { ApiService } from '../../api/propertiesAPI';
 
 function Property() {
   const { propertyId } = useParams();
@@ -17,22 +18,38 @@ function Property() {
   const [isLoading, setIsLoading] = useState(true); // Loading state
   const [hasError, setHasError] = useState(false); // Error state
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setIsLoading(true); // Start loading animation
+  //       setHasError(false); // Reset error state
+  //       const response = await fetch(`/api/data/${propertyId}`);
+  //       if (!response.ok) {
+  //         throw new Error('Bad Response');
+  //       }
+  //       const result = await response.json();
+  //       setData(result);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //       setHasError(true);
+  //     } finally {
+  //       setIsLoading(false); // Stop loading animation
+  //     }
+  //   };
+  //   fetchData();
+  // }, [propertyId]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading(true); // Start loading animation
-        setHasError(false); // Reset error state
-        const response = await fetch(`/api/data/${propertyId}`);
-        if (!response.ok) {
-          throw new Error('Bad Response');
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
+        setIsLoading(true);
+        const response = await ApiService.getPropertyById(propertyId || 0);
+        setData(response);
+      } catch (err) {
         setHasError(true);
+        console.log((err as Error).message);
       } finally {
-        setIsLoading(false); // Stop loading animation
+        setIsLoading(false);
       }
     };
     fetchData();

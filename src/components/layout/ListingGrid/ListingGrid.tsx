@@ -3,6 +3,7 @@ import { formatter } from '../../../util/formatter';
 import styles from './ListingGrid.module.css';
 import { Link } from 'react-router';
 import PropertyImage from '../../PropertyImage/PropertyImage';
+import { ApiService } from '../../../api/propertiesAPI';
 
 export interface ListingGridType {
   id: number;
@@ -18,21 +19,34 @@ export interface ListingGridType {
 function ListingGrid() {
   const [data, setData] = useState([]);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch('/api/data');
+  //       if (!response.ok) {
+  //         throw new Error('Bad Response');
+  //       }
+  //       const result = await response.json();
+  //       setData(result);
+  //     } catch (error) {
+  //       console.error(error as Error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/data');
-        if (!response.ok) {
-          throw new Error('Bad Response');
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error(error as Error);
+        const response = await ApiService.getProperties();
+        setData(response);
+      } catch (err) {
+        console.error((err as Error).message);
       }
     };
     fetchData();
   }, []);
+
   return (
     <section>
       <h2 className={`headline2 ${styles.headline}`}>Results</h2>

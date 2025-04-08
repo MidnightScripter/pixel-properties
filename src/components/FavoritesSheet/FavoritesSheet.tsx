@@ -1,83 +1,73 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
 import styles from './FavoritesSheet.module.css';
+import Sidesheet from '../Sidesheet/Sidesheet';
+import { useEffect, useState } from 'react';
+import { ListingGridType } from '../layout/ListingGrid/ListingGrid';
+import { FeaturedListingType } from '../layout/FeaturedListings/FeaturedListings';
+import { Link } from 'react-router';
+import PropertyImage from '../PropertyImage/PropertyImage';
+import { formatter } from '../../util/formatter';
+import { useFavorites } from '../../context/FavoritesContext';
+import { ApiService } from '../../api/propertiesAPI';
 
 export interface FavoritesSheetType {
-  title?: string;
-  className?: string;
-  children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }
 
-function FavoritesSheet({
-  title,
-  className,
-  children,
-  isOpen,
-  onClose,
-}: FavoritesSheetType) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const [shouldRender, setShouldRender] = useState(isOpen);
-
-  const handleAnimationEnd = () => {
-    if (!isOpen) {
-      setShouldRender(false); // Remove dialog from DOM after exit animation
-    }
-  };
+function FavoritesSheet({ isOpen, onClose }: FavoritesSheetType) {
+  const { favorites } = useFavorites();
+  const [data, setData] = useState<FeaturedListingType[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      setShouldRender(true);
-    }
-  }, [isOpen]);
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // const response = await ApiService.postFavorites(favorites);
+        const response = await ApiService.getFeaturedProperties();
+        setData(response);
+        console.log('Favorites synced successfully:', response);
+      } catch (err) {
+        console.error('Failed to sync favorites:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [favorites]);
 
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (dialog && isOpen) {
-      dialog.showModal(); // Open the dialog
-      dialog.focus();
-
-      const handleCancel = (e: Event) => {
-        e.preventDefault(); // Prevent closing via native behavior (solves some ESC state issues)
-        onClose(); // Use custom close logic
-      };
-
-      dialog.addEventListener('cancel', handleCancel);
-
-      return () => {
-        dialog.removeEventListener('cancel', handleCancel);
-        dialog.close(); // Clean up dialog state
-      };
-    }
-  }, [isOpen, onClose]);
-
-  return createPortal(
-    <>
-      {shouldRender && (
-        <dialog
-          className={`${styles.container} ${className || ''}`}
-          ref={dialogRef}
-          onAnimationEnd={handleAnimationEnd}
-          onClick={(e) => {
-            // Close if clicking on the backdrop
-            if (e.target === dialogRef.current) {
-              onClose();
-            }
-          }}
-        >
-          <header className={styles.header}>
-            {title && <h1>{title}</h1>}
-            <button onClick={onClose} className={styles.closeButton}>
-              &times;
-            </button>
-          </header>
-          {children}
-          <button>OK</button>
-        </dialog>
-      )}
-    </>,
-    document.body
+  return (
+    <Sidesheet isOpen={isOpen} onClose={onClose} title='Your Saved Properties'>
+      <h2>TESTING PROPS</h2>
+      <ul className={styles.listingWrapper}>
+        {data
+          ? data.map((data: ListingGridType) => {
+              return (
+                <li key={data.id} className={styles.listing}>
+                  <Link
+                    className={styles.listingLink}
+                    to={{ pathname: `/property/${data.id}` }}
+                    title={`View Details on ${data.title}`}
+                  >
+                    <PropertyImage
+                      propId={data.id}
+                      imageUrl={data.picture}
+                      description={`${data.title}: ${data.beds} Beds ${data.baths} Baths`}
+                    />
+                    <div className={styles.listingText}>
+                      <p>{data.address}</p>
+                      <p>{formatter.price(data.price)}</p>
+                      <p>
+                        Beds: {data.beds} &#8226; Baths: {data.baths}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })
+          : 'Loading'}
+      </ul>
+    </Sidesheet>
   );
 }
 export default FavoritesSheet;

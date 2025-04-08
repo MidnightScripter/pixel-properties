@@ -66,9 +66,9 @@ function Sidesheet({
         onAnimationEnd={handleAnimationEnd}
         onClick={handleBackdropClick}
       >
-        <div className={styles.content} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.wrapper} onClick={(e) => e.stopPropagation()}>
           <header className={styles.header}>
-            {title && <h1>{title}</h1>}
+            {title && <h1 className={styles.headline}>{title}</h1>}
             <button
               onClick={onClose}
               className={styles.closeButton}
@@ -77,8 +77,7 @@ function Sidesheet({
               <Close />
             </button>
           </header>
-          {children}
-          <button>OK</button>
+          <div className={styles.content}>{children}</div>
         </div>
       </dialog>
     </>,
