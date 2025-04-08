@@ -1,6 +1,7 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Sidesheet.module.css';
+import { Close } from '../../assets/icons';
 
 export interface SidesheetType {
   title?: string;
@@ -18,25 +19,30 @@ function Sidesheet({
   onClose,
 }: SidesheetType) {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const [shouldRender, setShouldRender] = useState(isOpen);
 
   const handleAnimationEnd = () => {
+    const dialog = dialogRef.current;
     if (!isOpen) {
-      setShouldRender(false); // Remove dialog from DOM after exit animation
+      if (dialog) {
+        dialog.close();
+      }
+    }
+  };
+
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    // Close the modal only if the click is directly on the backdrop
+    if (e.target === dialogRef.current) {
+      onClose();
     }
   };
 
   useEffect(() => {
-    if (isOpen) {
-      setShouldRender(true);
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
     const dialog = dialogRef.current;
     if (dialog && isOpen) {
-      dialog.showModal(); // Open the dialog
-      dialog.focus();
+      requestAnimationFrame(() => {
+        dialog.showModal(); // Open the dialog
+        dialog.focus();
+      });
 
       const handleCancel = (e: Event) => {
         e.preventDefault(); // Prevent closing via native behavior (solves some ESC state issues)
@@ -54,28 +60,27 @@ function Sidesheet({
 
   return createPortal(
     <>
-      {shouldRender && (
-        <dialog
-          className={`${styles.container} ${className || ''}`}
-          ref={dialogRef}
-          onAnimationEnd={handleAnimationEnd}
-          onClick={(e) => {
-            // Close if clicking on the backdrop
-            if (e.target === dialogRef.current) {
-              onClose();
-            }
-          }}
-        >
+      <dialog
+        className={`${styles.container} ${className || ''}`}
+        ref={dialogRef}
+        onAnimationEnd={handleAnimationEnd}
+        onClick={handleBackdropClick}
+      >
+        <div className={styles.content} onClick={(e) => e.stopPropagation()}>
           <header className={styles.header}>
             {title && <h1>{title}</h1>}
-            <button onClick={onClose} className={styles.closeButton}>
-              &times;
+            <button
+              onClick={onClose}
+              className={styles.closeButton}
+              aria-label='Click to Close this Dialog'
+            >
+              <Close />
             </button>
           </header>
           {children}
           <button>OK</button>
-        </dialog>
-      )}
+        </div>
+      </dialog>
     </>,
     document.body
   );
