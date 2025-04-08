@@ -9,6 +9,7 @@ export interface SidesheetType {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
+  size?: 's' | 'm' | 'l';
 }
 
 function Sidesheet({
@@ -17,6 +18,7 @@ function Sidesheet({
   children,
   isOpen,
   onClose,
+  size = 'm',
 }: SidesheetType) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -41,11 +43,13 @@ function Sidesheet({
     if (dialog && isOpen) {
       requestAnimationFrame(() => {
         dialog.showModal(); // Open the dialog
+        document.body.classList.add('no-scroll');
         dialog.focus();
       });
 
       const handleCancel = (e: Event) => {
         e.preventDefault(); // Prevent closing via native behavior (solves some ESC state issues)
+        document.body.classList.remove('no-scroll');
         onClose(); // Use custom close logic
       };
 
@@ -54,6 +58,7 @@ function Sidesheet({
       return () => {
         dialog.removeEventListener('cancel', handleCancel);
         dialog.close(); // Clean up dialog state
+        document.body.classList.remove('no-scroll');
       };
     }
   }, [isOpen, onClose]);
@@ -61,7 +66,9 @@ function Sidesheet({
   return createPortal(
     <>
       <dialog
-        className={`${styles.container} ${className || ''}`}
+        className={`${styles.container} ${styles['size-' + size]} ${
+          className || ''
+        }`}
         ref={dialogRef}
         onAnimationEnd={handleAnimationEnd}
         onClick={handleBackdropClick}

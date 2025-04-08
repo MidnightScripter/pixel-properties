@@ -86,15 +86,17 @@ function Property() {
       ) : data ? (
         <>
           <Hero heroImage='/searchHero.webp' heroHeadline='Property Details' />
-          <div className={styles.searchTextBlock}>
-            <h2 className={`headline2 ${styles.headline}`}>{data.title}</h2>
-            <span className={styles.imageContainer}>
-              <PropertyImage
-                propId={data.id}
-                imageUrl={data.picture}
-                className={styles.image}
-              />
-            </span>
+          <div className={styles.propertyDescriptionWrapper}>
+            <div className={styles.propertyIntro}>
+              <h2 className={`headline2 ${styles.headline}`}>{data.title}</h2>
+              <span className={styles.imageContainer}>
+                <PropertyImage
+                  propId={data.id}
+                  imageUrl={data.picture}
+                  className={styles.image}
+                />
+              </span>
+            </div>
             <div className={styles.propertyDescription}>
               <h3>
                 Details for {data.address} {data.city}, {data.state}

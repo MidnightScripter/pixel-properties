@@ -374,7 +374,9 @@ const mockData = [
     featured: true,
   },
 ];
-
+interface FavoritesRequestBody {
+  favorites: number[];
+}
 export const handlers = [
   http.get('/api/data/featured', () => {
     const featuredProperties = mockData.filter(
@@ -391,6 +393,16 @@ export const handlers = [
     if (property) {
       await delay();
       return HttpResponse.json(property); // Return the matching property
+    } else {
+      return new HttpResponse(null, { status: 404 }); // Handle missing property
+    }
+  }),
+  http.post('/api/data/favorites', async ({ request }) => {
+    const { favorites } = (await request.json()) as FavoritesRequestBody;
+    const matchedProps = mockData.filter((item) => favorites.includes(item.id));
+    if (matchedProps.length > 0) {
+      await delay();
+      return HttpResponse.json(matchedProps); // Return the matching property
     } else {
       return new HttpResponse(null, { status: 404 }); // Handle missing property
     }
