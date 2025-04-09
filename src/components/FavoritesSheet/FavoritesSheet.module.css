@@ -3,11 +3,27 @@
   flex-direction: column;
 }
 .favoritesListing {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-auto-rows: clamp(10rem, 20vh, 20rem);
+  display: flex;
+  flex-wrap: wrap;
   padding: 2rem;
+  gap: 2rem;
 }
 .favoritesListing:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.5);
+}
+.propertyImage {
+  width: clamp(18rem, 40%, 24rem);
+  max-height: 100%;
+}
+.listingText {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.buttonCTA {
+  display: flex;
+  margin-top: auto;
+  flex-shrink: 1;
+  padding-top: 1rem;
 }

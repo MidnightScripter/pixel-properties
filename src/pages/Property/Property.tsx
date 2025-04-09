@@ -11,6 +11,7 @@ import ErrorUI from '../ErrorUI/ErrorUI';
 import PropertyDetailBlock from '../../components/PropertyDetail/PropertyDetailBlock';
 import PropertyImage from '../../components/PropertyImage/PropertyImage';
 import { ApiService } from '../../api/propertiesAPI';
+import { Bed, Shower } from '../../assets/icons';
 
 function Property() {
   const { propertyId } = useParams();
@@ -88,7 +89,9 @@ function Property() {
           <Hero heroImage='/searchHero.webp' heroHeadline='Property Details' />
           <div className={styles.propertyDescriptionWrapper}>
             <div className={styles.propertyIntro}>
-              <h2 className={`headline2 ${styles.headline}`}>{data.title}</h2>
+              <h2 className={`headline2 ${styles.headline}`}>
+                {data.address} {data.city}, {data.state}
+              </h2>
               <span className={styles.imageContainer}>
                 <PropertyImage
                   propId={data.id}
@@ -96,13 +99,27 @@ function Property() {
                   className={styles.image}
                 />
               </span>
+              <h3 className='headline3'>{data.title}</h3>
+              <h4 className={`headline3 ${styles.price}`}>
+                {formatter.price(data.price)}
+              </h4>
+              <p className={styles.propertyShort}>
+                <span>
+                  <Bed />
+                </span>
+                Beds: {data.beds}
+                <span aria-hidden>&#8226;</span>
+                <span>
+                  <Shower />
+                </span>
+                Baths: {data.baths}
+              </p>
             </div>
             <div className={styles.propertyDescription}>
               <h3>
                 Details for {data.address} {data.city}, {data.state}
               </h3>
               <p>{data.description}</p>
-              <h4 className={styles.price}>{formatter.price(data.price)}</h4>
             </div>
             <PropertyDetailBlock propertyData={data} />
           </div>

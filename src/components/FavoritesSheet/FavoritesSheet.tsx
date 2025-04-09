@@ -43,7 +43,13 @@ function FavoritesSheet({ isOpen, onClose }: FavoritesSheetType) {
       <ul className={styles.favoritesListingWrapper}>
         {data
           ? data.map((data: ListingGridType) => {
-              return <FavoritesSheetItem key={data.id} data={data} />;
+              return (
+                <FavoritesSheetItem
+                  key={data.id}
+                  data={data}
+                  onClose={onClose}
+                />
+              );
             })
           : 'Loading'}
       </ul>

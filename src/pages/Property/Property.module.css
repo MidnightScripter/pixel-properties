@@ -11,14 +11,23 @@
 .propertyIntro {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: var(--color-purple-purple2);
   padding: 5rem 0;
   width: 100%;
+  color: white;
+  gap: 1rem;
 }
 .headline {
   text-align: center;
   padding: 2rem;
   color: white;
+}
+.propertyShort {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
 }
 .detailRow {
   display: flex;

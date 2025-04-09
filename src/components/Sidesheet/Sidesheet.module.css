@@ -16,6 +16,7 @@
 }
 .size-l {
   max-width: 90vw;
+  max-height: 90vh;
 }
 .container[open] {
   display: block;
@@ -86,4 +87,5 @@
   color: white;
   overflow-y: scroll;
   overscroll-behavior: contain;
+  height: 100%;
 }

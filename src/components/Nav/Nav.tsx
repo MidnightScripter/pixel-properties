@@ -68,7 +68,6 @@ function Nav() {
           <li className={styles.link}>
             <Link to={{ pathname: '/search' }} onClick={handleClick}>
               Find a Home
-              {modalOpen && 'BOB!!!'}
             </Link>
           </li>
           <li className={styles.link}>
