@@ -71,7 +71,7 @@ function Nav() {
             </Link>
           </li>
           <li className={styles.link}>
-            <Link to={{ pathname: '/contact' }} onClick={handleClick}>
+            <Link to={{ pathname: '/agents' }} onClick={handleClick}>
               Agents
             </Link>
           </li>

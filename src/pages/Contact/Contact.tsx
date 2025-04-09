@@ -9,7 +9,7 @@ function Contact() {
       <div className={styles.container}>
         <h2 className='headline2'>Contact Us</h2>
         <p>
-          Thanks for browsing this test website for fictional Pixel Properties.
+          Thanks for browsing this demo website for fictional Pixel Properties.
           I use this site to test out new layouts, techniques, and just
           generally keep in practice.
         </p>

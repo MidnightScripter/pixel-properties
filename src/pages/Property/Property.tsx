@@ -16,29 +16,8 @@ import { Bed, Shower } from '../../assets/icons';
 function Property() {
   const { propertyId } = useParams();
   const [data, setData] = useState<FeaturedListingType>();
-  const [isLoading, setIsLoading] = useState(true); // Loading state
-  const [hasError, setHasError] = useState(false); // Error state
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setIsLoading(true); // Start loading animation
-  //       setHasError(false); // Reset error state
-  //       const response = await fetch(`/api/data/${propertyId}`);
-  //       if (!response.ok) {
-  //         throw new Error('Bad Response');
-  //       }
-  //       const result = await response.json();
-  //       setData(result);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //       setHasError(true);
-  //     } finally {
-  //       setIsLoading(false); // Stop loading animation
-  //     }
-  //   };
-  //   fetchData();
-  // }, [propertyId]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
