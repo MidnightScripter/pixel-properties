@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useNavigate } from 'react-router';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
@@ -8,6 +9,21 @@ import styles from './Index.module.css';
 import { Search, Location } from '../../assets/icons';
 
 function Index() {
+  const navigate = useNavigate();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // In a non-test setting, this would be validated properly for real city/zips from
+    // something like the postal service api
+    const inputValue = inputRef.current?.value.trim();
+    const urlParam = inputValue?.match(/^\d{5}&/gi) ? 'zipcode' : 'city';
+    if (inputValue) {
+      navigate(`/search?${urlParam}=${encodeURIComponent(inputValue)}`);
+    }
+  };
+
   let currentZipcode = '';
   async function lookup(currentPosition: {
     coords: { latitude: number; longitude: number };
@@ -41,7 +57,6 @@ function Index() {
       }
     });
   }
-  const navigate = useNavigate();
   const handleSearchNearby = async () => {
     try {
       await getLatLong();
@@ -63,13 +78,14 @@ function Index() {
             <h1 className='headline3'>
               Find your perfect home in the Onett, Eagleland area
             </h1>
-            <form action='' name='search-form'>
+            <form onSubmit={handleSubmit} name='search-form'>
               <div className={styles.searchContainer}>
                 <Input
                   label='Enter a City or Zip Code'
                   hideLabel
                   placeholder='Enter a City or Zip Code'
                   inputName='cityZip'
+                  ref={inputRef}
                 />
                 <span className={styles.buttonContainer}>
                   <Button icon={Search} buttonIconOnly label='Submit Search' />

@@ -7,6 +7,7 @@
   flex-wrap: wrap;
   padding: 2rem;
   gap: 2rem;
+  justify-content: center;
 }
 .favoritesListing:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.5);
@@ -19,7 +20,7 @@
   font-size: 1.25rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  min-width: 30%;
 }
 .buttonCTA {
   display: flex;

@@ -1,4 +1,5 @@
 export { default as AC } from './ac-icon.svg?react';
+export { default as Agent } from './agent-icon.svg?react';
 export { default as Bed } from './bed-icon.svg?react';
 export { default as Bookmark } from './bookmark-unsaved-icon.svg?react';
 export { default as BookmarkSaved } from './bookmark-icon.svg?react';

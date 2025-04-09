@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import styles from './Input.module.css';
 
 export interface InputProps {
@@ -6,6 +7,7 @@ export interface InputProps {
   inputType?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   inputName?: string;
+  ref?: Ref<HTMLInputElement>;
 }
 
 function Input({
@@ -14,6 +16,7 @@ function Input({
   inputType = 'text',
   placeholder,
   inputName,
+  ref,
   ...props
 }: InputProps) {
   const generateLabel = (labelText: string) => {
@@ -35,6 +38,7 @@ function Input({
         type={inputType}
         placeholder={placeholder}
         {...props}
+        ref={ref}
       />
     </div>
   );

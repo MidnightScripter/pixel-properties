@@ -71,12 +71,12 @@ function Nav() {
             </Link>
           </li>
           <li className={styles.link}>
-            <Link to={{ pathname: '/search' }} onClick={handleClick}>
+            <Link to={{ pathname: '/contact' }} onClick={handleClick}>
               Agents
             </Link>
           </li>
           <li className={styles.link}>
-            <Link to={{ pathname: '/search' }} onClick={handleClick}>
+            <Link to={{ pathname: '/contact' }} onClick={handleClick}>
               About Us
             </Link>
           </li>
