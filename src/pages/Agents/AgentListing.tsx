@@ -7,18 +7,18 @@ export interface AgentListingType {
 
 function AgentListing({ agentInfo }: AgentListingType) {
   return (
-    <li className={styles.infoContainer}>
+    <article className={styles.infoContainer}>
       <div className={styles.agentIntroBlock}>
         <span className={styles.imageContainer}>
           <img className={styles.image} src={agentInfo.image} alt='' />
         </span>
-        <p className={styles.agentName}>{agentInfo.fullName}</p>
+        <h2 className={styles.agentName}>{agentInfo.fullName}</h2>
         <p className={styles.agentExp}>
           {agentInfo.yearsOfExperience} years experience
         </p>
       </div>
       <p className={styles.agentBiography}>{agentInfo.biography}</p>
-    </li>
+    </article>
   );
 }
 

@@ -10,11 +10,9 @@ function Agents() {
       <Hero heroImage='agentHero.webp' heroHeadline='Our Agents' />
       <section className={styles.container}>
         <h2 className={`headline2 ${styles.headline}`}>Meet Our Team</h2>
-        <ul className={styles.agentGrid}>
-          {agentInfo.map((agent) => (
-            <AgentListing key={agent.id} agentInfo={agent} />
-          ))}
-        </ul>
+        {agentInfo.map((agent) => (
+          <AgentListing key={agent.id} agentInfo={agent} />
+        ))}
       </section>
     </>
   );

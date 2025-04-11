@@ -19,15 +19,17 @@ function FavoritesSheet({ isOpen, onClose }: FavoritesSheetType) {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await ApiService.postFavorites(favorites);
-        setData(response);
-        console.log('Favorites synced successfully:', response);
-      } catch (err) {
-        console.error('Failed to sync favorites:', err);
-      } finally {
-        setLoading(false);
+      if (favorites.length > 0) {
+        try {
+          setLoading(true);
+          const response = await ApiService.postFavorites(favorites);
+          setData(response);
+          console.log('Favorites synced successfully:', response);
+        } catch (err) {
+          console.error('Failed to sync favorites:', err);
+        } finally {
+          setLoading(false);
+        }
       }
     };
     fetchData();

@@ -1,5 +1,6 @@
 .container {
-  margin: 3rem 1rem;
+  background-color: rgb(250, 245, 234);
+  padding: 3rem 1rem;
 }
 .headline {
   color: var(--color-purple-purple1);
