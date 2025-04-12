@@ -20,6 +20,7 @@ function PropertyImage({
         className={styles.image}
         src={`/${imageUrl}`}
         alt={description || ''}
+        loading='lazy'
       />
       <SaveListing propId={propId} className={styles.saveListing} />
     </div>

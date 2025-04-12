@@ -1,8 +1,7 @@
 import styles from './FavoritesSheet.module.css';
 import Sidesheet from '../Sidesheet/Sidesheet';
 import { useEffect, useState } from 'react';
-import { ListingGridType } from '../layout/ListingGrid/ListingGrid';
-import { FeaturedListingType } from '../layout/FeaturedListings/FeaturedListings';
+import { PropertyDataType } from '../../types/apiDataTypes';
 import { useFavorites } from '../../context/FavoritesContext';
 import { ApiService } from '../../api/propertiesAPI';
 import FavoritesSheetItem from './FavoritesSheetItem';
@@ -14,7 +13,7 @@ export interface FavoritesSheetType {
 
 function FavoritesSheet({ isOpen, onClose }: FavoritesSheetType) {
   const { favorites } = useFavorites();
-  const [data, setData] = useState<FeaturedListingType[]>([]);
+  const [data, setData] = useState<PropertyDataType[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ function FavoritesSheet({ isOpen, onClose }: FavoritesSheetType) {
           setLoading(true);
           const response = await ApiService.postFavorites(favorites);
           setData(response);
-          console.log('Favorites synced successfully:', response);
+          // console.log('Favorites synced successfully:', response);
         } catch (err) {
           console.error('Failed to sync favorites:', err);
         } finally {
@@ -44,7 +43,7 @@ function FavoritesSheet({ isOpen, onClose }: FavoritesSheetType) {
     >
       <ul className={styles.favoritesListingWrapper}>
         {data
-          ? data.map((data: ListingGridType) => {
+          ? data.map((data: PropertyDataType) => {
               return (
                 <FavoritesSheetItem
                   key={data.id}

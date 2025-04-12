@@ -1,6 +1,6 @@
 @import url('layout.css');
 @import url('typography.css');
-
+@import 'react-loading-skeleton/dist/skeleton.css';
 /* =============================================================================
 CSS Variables
 ==============================================================================*/

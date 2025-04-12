@@ -1,4 +1,4 @@
-import { FeaturedListingType } from './FeaturedListings';
+import { PropertyDataType } from '../../../types/apiDataTypes';
 import styles from './FeaturedListings.module.css';
 import { formatter } from '../../../util/formatter';
 import { Link } from 'react-router';
@@ -6,7 +6,7 @@ import PropertyImage from '../../PropertyImage/PropertyImage';
 
 export interface FeaturedListingProps {
   imageOnRight?: boolean;
-  listingData: FeaturedListingType;
+  listingData: PropertyDataType;
 }
 function FeaturedListing({ imageOnRight, listingData }: FeaturedListingProps) {
   return (

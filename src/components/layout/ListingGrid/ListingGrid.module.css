@@ -13,6 +13,10 @@
   display: flex;
   justify-content: center;
 }
+.skeleton {
+  display: flex;
+  flex: 1;
+}
 .listingImage {
   filter: brightness(0.6);
   position: relative;

@@ -1,12 +1,12 @@
 import styles from './FavoritesSheet.module.css';
-import { ListingGridType } from '../layout/ListingGrid/ListingGrid';
+import { PropertyDataType } from '../../types/apiDataTypes';
 import { Link, useNavigate } from 'react-router';
 import PropertyImage from '../PropertyImage/PropertyImage';
 import { formatter } from '../../util/formatter';
 import Button from '../Button/Button';
 
 interface FavoritesSheetItemType {
-  data: ListingGridType;
+  data: PropertyDataType;
   onClose: () => void;
 }
 function FavoritesSheetItem({

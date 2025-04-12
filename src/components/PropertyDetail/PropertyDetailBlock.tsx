@@ -1,13 +1,13 @@
 import styles from './PropertyDetail.module.css';
 import PropertyDetail from './PropertyDetail';
-import { FeaturedListingType } from '../layout/FeaturedListings/FeaturedListings';
+import { PropertyDataType } from '../../types/apiDataTypes';
 import {
   propertyCategories,
   friendlyFeatureNames,
 } from '../../util/propertyCategories';
 
 export interface PropertyDetailBlockType {
-  propertyData: FeaturedListingType;
+  propertyData: PropertyDataType;
 }
 
 function PropertyDetailBlock({ propertyData }: PropertyDetailBlockType) {
@@ -16,7 +16,7 @@ function PropertyDetailBlock({ propertyData }: PropertyDetailBlockType) {
       {propertyCategories.map((category) => {
         // Filter the keys to see if the propertyData has at least one valid value for the category
         const validKeys = category.keys.filter(
-          (key) => propertyData[key as keyof FeaturedListingType]
+          (key) => propertyData[key as keyof PropertyDataType]
         );
 
         // If no valid keys are found, skip rendering this category
@@ -32,8 +32,7 @@ function PropertyDetailBlock({ propertyData }: PropertyDetailBlockType) {
             {validKeys.map((key) => {
               const detailType =
                 friendlyFeatureNames[key as keyof typeof friendlyFeatureNames];
-              const detailValue =
-                propertyData[key as keyof FeaturedListingType];
+              const detailValue = propertyData[key as keyof PropertyDataType];
 
               // Skip rendering if detailValue is undefined
               if (detailValue === undefined || detailType === undefined)

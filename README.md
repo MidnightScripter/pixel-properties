@@ -1,6 +1,6 @@
 # (Not Complete)Pixel Properties Real Estate
 
-Pixel Properties Real Estate quick page.
+Pixel Properties Real Estate demo site.
 
 ## Summary
 
@@ -18,14 +18,15 @@ This was a technical submission for an interview that I did however all original
 
 - React
   - Vite project creation
-  - Vite svgr for better svg import
-  - React classnames
-  - React router
+  - [Vite svgr (for better svg import)](https://www.npmjs.com/package/vite-plugin-svgr)
+  - [React router](https://www.npmjs.com/package/react-router)
+  - [React Classnames (easy class combining and handling)](https://www.npmjs.com/package/classnames)
+  - [React Loading Skeleton (lightweight skeleton loader)](https://www.npmjs.com/package/react-loading-skeleton)
 - CSS Modules (Vite Built-in)
 - TypeScript
-- Mock Service Worker (property listings API mockup)
+- [Mock Service Worker (Mocking data for API calls)](https://www.npmjs.com/package/msw)
 
-## Running
+## Running Locally
 
 npm run dev
 
@@ -39,10 +40,10 @@ Images from [Unsplash](https://unsplash.com)
 
 ## Special Notes
 
-Please note that this is a Demo/Portfolio Site, not a real company and these properties and any site content or information is _NOT REAL_. The data is made up and inspired by an RPG from the 90s.
+Please note that this is a Demo/Portfolio Site, not a real company and these properties and any site content or information is _NOT REAL_. The data is all made up and inspired by an RPG from the 90s.
 
 Note that due to browser restrictions on navigator.geolocation, Search Near Me sometimes does not properly return your location when running locally. Firefox (not in-private) tabs seem to be the most reliable for testing this feature while running locally.
 
 ## Contributing
 
-This is a practice / demo type of project, so contributions are disabled. Free free to pull/clone or use anything in here you might find useful though
+This is a practice / demo type of project, so contributions are disabled. Free free to pull/clone or use anything in here you might find useful

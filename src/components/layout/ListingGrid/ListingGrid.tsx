@@ -4,44 +4,23 @@ import styles from './ListingGrid.module.css';
 import { Link } from 'react-router';
 import PropertyImage from '../../PropertyImage/PropertyImage';
 import { ApiService } from '../../../api/propertiesAPI';
-
-export interface ListingGridType {
-  id: number;
-  picture: string;
-  address: string;
-  price: string;
-  beds: string;
-  baths: string;
-  title: string;
-  description: string;
-}
+import { PropertyDataType } from '../../../types/apiDataTypes';
+import Skeleton from 'react-loading-skeleton';
 
 function ListingGrid() {
-  const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch('/api/data');
-  //       if (!response.ok) {
-  //         throw new Error('Bad Response');
-  //       }
-  //       const result = await response.json();
-  //       setData(result);
-  //     } catch (error) {
-  //       console.error(error as Error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+  const [data, setData] = useState<PropertyDataType[] | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await ApiService.getProperties();
         setData(response);
       } catch (err) {
         console.error((err as Error).message);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
@@ -51,8 +30,16 @@ function ListingGrid() {
     <section>
       <h2 className={`headline2 ${styles.headline}`}>Results</h2>
       <ul className={styles.listingWrapper}>
-        {data
-          ? data.map((data: ListingGridType) => {
+        {loading
+          ? [...Array(9)].map(() => (
+              <li className={styles.listing}>
+                <Skeleton
+                  containerClassName={styles.skeleton}
+                  highlightColor='#ad91aa'
+                />
+              </li>
+            ))
+          : data?.map((data: PropertyDataType) => {
               return (
                 <li key={data.id} className={styles.listing}>
                   <Link
@@ -75,8 +62,7 @@ function ListingGrid() {
                   </Link>
                 </li>
               );
-            })
-          : 'Loading'}
+            })}
       </ul>
     </section>
   );

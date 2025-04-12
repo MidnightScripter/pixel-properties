@@ -1,41 +1,11 @@
 import { useState, useEffect } from 'react';
 import styles from './FeaturedListings.module.css';
 import FeaturedListing from './FeaturedListing';
+import { PropertyDataType } from '../../../types/apiDataTypes';
 import { ApiService } from '../../../api/propertiesAPI';
 
-export interface FeaturedListingType {
-  id: number;
-  mlsNo: string;
-  sqFt: string;
-  picture: string;
-  address: string;
-  city: string;
-  state: string;
-  county: string;
-  price: string;
-  beds: string;
-  baths: string;
-  title: string;
-  description: string;
-  yearBuilt: number;
-  propertyType: string;
-  garage: boolean;
-  garageSize?: string;
-  garageAttached?: boolean;
-  lotSize: string;
-  squareFootage: string;
-  heating: string;
-  cooling: string;
-  flooring: string;
-  HOA: boolean;
-  taxAnnualAmount: number;
-  taxYear: number;
-  schoolDistrict: string;
-  featured?: boolean;
-}
-
 function FeaturedListings() {
-  const [data, setData] = useState<FeaturedListingType[]>([]);
+  const [data, setData] = useState<PropertyDataType[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

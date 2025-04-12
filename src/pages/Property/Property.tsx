@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
-import FeaturedListings, {
-  FeaturedListingType,
-} from '../../components/layout/FeaturedListings/FeaturedListings';
+import FeaturedListings from '../../components/layout/FeaturedListings/FeaturedListings';
+import { PropertyDataType } from '../../types/apiDataTypes';
 import styles from './Property.module.css';
 import { formatter } from '../../util/formatter';
 import Hero from '../../components/layout/Hero/Hero';
@@ -15,7 +14,7 @@ import { Bed, Shower } from '../../assets/icons';
 
 function Property() {
   const { propertyId } = useParams();
-  const [data, setData] = useState<FeaturedListingType>();
+  const [data, setData] = useState<PropertyDataType>();
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 

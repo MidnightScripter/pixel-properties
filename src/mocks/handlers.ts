@@ -271,9 +271,12 @@ const mockData = [
     featured: true,
   },
 ];
+
 interface FavoritesRequestBody {
   favorites: number[];
 }
+const generalDelay = 500;
+
 export const handlers = [
   http.get('/api/data/featured', () => {
     const featuredProperties = mockData.filter(
@@ -281,14 +284,15 @@ export const handlers = [
     );
     return HttpResponse.json(featuredProperties);
   }),
-  http.get('/api/data', () => {
+  http.get('/api/data', async () => {
+    await delay(generalDelay);
     return HttpResponse.json(mockData);
   }),
   http.get('/api/data/:propertyId', async ({ params }) => {
     const { propertyId } = params;
     const property = mockData.find((item) => item.id.toString() === propertyId);
     if (property) {
-      await delay();
+      await delay(generalDelay);
       return HttpResponse.json(property); // Return the matching property
     } else {
       return new HttpResponse(null, { status: 404 }); // Handle missing property
@@ -298,7 +302,7 @@ export const handlers = [
     const { favorites } = (await request.json()) as FavoritesRequestBody;
     const matchedProps = mockData.filter((item) => favorites.includes(item.id));
     if (matchedProps.length > 0) {
-      await delay();
+      await delay(generalDelay);
       return HttpResponse.json(matchedProps); // Return the matching property
     } else {
       return new HttpResponse(null, { status: 404 }); // Handle missing property
