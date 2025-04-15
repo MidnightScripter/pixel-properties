@@ -8,6 +8,7 @@ function Footer() {
           className={styles.logo}
           src='/logo.svg'
           alt='Go To Pixel Properties Homepage'
+          loading='lazy'
         />
         <address>
           <p className='headline3'>Pixel Properties Office</p>

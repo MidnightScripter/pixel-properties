@@ -26,6 +26,7 @@
 }
 .listingLink {
   position: relative;
+  width: 100%;
 }
 .listingLink::after {
   content: '';

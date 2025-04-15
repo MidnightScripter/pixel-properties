@@ -38,6 +38,7 @@
   width: var(--listing-featured-size-width);
   position: relative;
   overflow: hidden;
+  aspect-ratio: 1.5;
 }
 .listingImage {
   border-radius: var(--listing-featured-border-radius);
@@ -52,6 +53,7 @@
   filter: drop-shadow(0 0 1rem #000000);
 }
 .descriptionBlock {
+  position: relative;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -136,6 +138,15 @@
 }
 .linkWrapper:hover .linkBackground {
   transform: translateX(125%);
+}
+.loader {
+  padding: 0;
+}
+.skeleton {
+  min-height: 20rem;
+  display: flex;
+  flex: 1;
+  height: 100%;
 }
 @media (min-width: 1240px) {
   :root {

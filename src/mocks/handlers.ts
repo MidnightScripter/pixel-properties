@@ -278,7 +278,9 @@ interface FavoritesRequestBody {
 const generalDelay = 500;
 
 export const handlers = [
-  http.get('/api/data/featured', () => {
+  http.get('/api/data/featured', async () => {
+    await delay(generalDelay);
+
     const featuredProperties = mockData.filter(
       (property) => property.featured === true
     );

@@ -69,7 +69,7 @@ function Index() {
     <>
       <Hero
         fullHeight
-        heroImage='/hero.jpg'
+        heroImage='/hero.webp'
         heroHeadline={
           <>
             <p className={`display1 ${styles.headline}`}>

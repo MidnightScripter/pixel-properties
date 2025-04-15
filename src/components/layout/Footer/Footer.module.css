@@ -49,6 +49,7 @@ Footer
 }
 .logo {
   width: clamp(10rem, 15vw, 15rem);
+  aspect-ratio: 15/4;
 }
 .externalLinkIcon {
   display: inline-block;
