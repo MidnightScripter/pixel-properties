@@ -38,3 +38,8 @@
 .categoryIcon {
   padding-bottom: 0.25rem;
 }
+.skeleton {
+  width: 100%;
+  display: flex;
+  padding: 0 1rem;
+}

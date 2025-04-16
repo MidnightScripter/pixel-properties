@@ -11,6 +11,7 @@ import PropertyDetailBlock from '../../components/PropertyDetail/PropertyDetailB
 import PropertyImage from '../../components/PropertyImage/PropertyImage';
 import { ApiService } from '../../api/propertiesAPI';
 import { Bed, Shower } from '../../assets/icons';
+import Skeleton from 'react-loading-skeleton';
 
 function Property() {
   const { propertyId } = useParams();
@@ -38,8 +39,28 @@ function Property() {
     <>
       {isLoading ? (
         <>
-          <Hero heroImage='/searchHero.webp' heroHeadline='Loading' />
-          <p>Loading...</p>
+          <Hero heroImage='/searchHero.webp' heroHeadline='Property Details' />
+          <div className={styles.propertyDescriptionWrapper}>
+            <div className={styles.propertyIntro}>
+              <h2 className={`headline2 ${styles.headline}`}>Loading...</h2>
+              <span className={styles.imageContainer}>
+                <Skeleton
+                  containerClassName={styles.skeleton}
+                  highlightColor='#ad91aa'
+                />
+              </span>
+              <div>
+                <Skeleton
+                  containerClassName={styles.skeleton}
+                  highlightColor='#ad91aa'
+                />
+              </div>
+            </div>
+            <div className={styles.propertyDescription}>
+              <p></p>
+            </div>
+            <PropertyDetailBlock isLoading={isLoading} />
+          </div>
         </>
       ) : hasError ? (
         <ErrorUI
@@ -75,6 +96,7 @@ function Property() {
                   propId={data.id}
                   imageUrl={data.picture}
                   className={styles.image}
+                  loadingType='eager'
                 />
               </span>
               <h3 className='headline3'>{data.title}</h3>

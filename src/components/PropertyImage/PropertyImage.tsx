@@ -6,6 +6,7 @@ export interface PropertyImageType {
   description?: string;
   className?: string;
   propId?: number;
+  loadingType?: 'lazy' | 'eager';
 }
 
 function PropertyImage({
@@ -13,6 +14,7 @@ function PropertyImage({
   description,
   className,
   propId,
+  loadingType = 'lazy',
 }: PropertyImageType) {
   return (
     <div className={`${styles.container} ${className || ''}`}>
@@ -20,7 +22,7 @@ function PropertyImage({
         className={styles.image}
         src={`/${imageUrl}`}
         alt={description || ''}
-        loading='lazy'
+        loading={loadingType}
       />
       <SaveListing propId={propId} className={styles.saveListing} />
     </div>

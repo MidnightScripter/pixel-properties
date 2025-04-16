@@ -54,3 +54,10 @@
 .propertyDescription {
   width: var(--layout-container-max-width);
 }
+
+.skeleton {
+  min-height: 20rem;
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
