@@ -14,20 +14,20 @@ export interface FavoritesSheetType {
 function FavoritesSheet({ isOpen, onClose }: FavoritesSheetType) {
   const { favorites } = useFavorites();
   const [data, setData] = useState<PropertyDataType[]>([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       if (favorites.length > 0) {
         try {
-          setLoading(true);
+          // setLoading(true);
           const response = await ApiService.postFavorites(favorites);
           setData(response);
           // console.log('Favorites synced successfully:', response);
         } catch (err) {
           console.error('Failed to sync favorites:', err);
         } finally {
-          setLoading(false);
+          // setLoading(false);
         }
       }
     };
